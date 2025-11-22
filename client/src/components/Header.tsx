@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import gokhaleLogoPath from "@assets/download_1763797884548.jpg";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,13 +26,16 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
-              <BookOpen className="w-5 h-5" />
-            </div>
+          <div className="flex items-center gap-3">
+            <img 
+              src={gokhaleLogoPath} 
+              alt="Gokhale Institute of Politics and Economics" 
+              className="w-10 h-10 rounded-lg"
+              data-testid="navbar-logo"
+            />
             <div className="flex flex-col">
-              <span className="text-lg font-semibold leading-none">Correlation</span>
-              <span className="text-xs text-muted-foreground">Learning Platform</span>
+              <span className="text-lg font-semibold leading-none">Gokhale Institute of</span>
+              <span className="text-xs text-muted-foreground">Politics and Economics</span>
             </div>
           </div>
 
