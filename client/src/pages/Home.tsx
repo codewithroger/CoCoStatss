@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Footer } from "@/components/Footer";
 import { StatsOverview } from "@/components/StatsOverview";
 import { FlashcardSystem } from "@/components/FlashcardSystem";
 import { CorrelationVisualizations } from "@/components/CorrelationVisualizations";
@@ -226,7 +225,6 @@ export default function Home() {
         />
         <ConceptsReference />
       </main>
-      <Footer />
     </div>
   );
 }
