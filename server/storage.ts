@@ -308,7 +308,7 @@ export class MemStorage implements IStorage {
 
     const percentage = (correctCount / questions.length) * 100;
     
-    await this.updateUserProgress(percentage);
+    await this.updateUserProgress(correctCount);
 
     return {
       score: correctCount,

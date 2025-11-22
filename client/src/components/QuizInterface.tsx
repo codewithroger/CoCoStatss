@@ -96,10 +96,10 @@ export function QuizInterface({ questions, onSubmitQuiz }: QuizInterfaceProps) {
             <CardContent className="space-y-6">
               <div className="text-center">
                 <p className="text-5xl font-bold mb-2" data-testid="quiz-score">
-                  {quizResult.percentage.toFixed(0)}%
+                  {quizResult?.percentage?.toFixed(0) ?? 0}%
                 </p>
                 <p className="text-muted-foreground" data-testid="text-quiz-result">
-                  You got {quizResult.score} out of {quizResult.total} questions correct
+                  You got {quizResult?.score ?? 0} out of {quizResult?.total ?? 0} questions correct
                 </p>
               </div>
 
