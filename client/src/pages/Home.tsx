@@ -29,7 +29,7 @@ export default function Home() {
 
   const submitQuizMutation = useMutation<QuizResult, Error, QuizSubmission>({
     mutationFn: async (submission: QuizSubmission) => {
-      return apiRequest("POST", "/api/quiz/submit", submission);
+      return apiRequest<QuizResult>("POST", "/api/quiz/submit", submission);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/progress"] });
@@ -38,7 +38,7 @@ export default function Home() {
 
   const viewCardMutation = useMutation<UserProgress, Error, string>({
     mutationFn: async (cardId: string) => {
-      return apiRequest("POST", "/api/flashcards/viewed", { cardId });
+      return apiRequest<UserProgress>("POST", "/api/flashcards/viewed", { cardId });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/progress"] });
