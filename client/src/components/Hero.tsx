@@ -47,7 +47,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button 
             size="lg" 
-            onClick={() => scrollToSection('flashcards')}
+            onClick={() => scrollToSection('correlation-topic')}
             data-testid="button-start-learning"
           >
             <BookOpen className="w-5 h-5 mr-2" />
