@@ -5,7 +5,6 @@ import { Hero } from "@/components/Hero";
 import { LearnSection } from "@/components/LearnSection";
 import { StatsOverview } from "@/components/StatsOverview";
 import { FlashcardSystem } from "@/components/FlashcardSystem";
-import { CorrelationVisualizations } from "@/components/CorrelationVisualizations";
 import { QuizInterface } from "@/components/QuizInterface";
 import { ConceptsReference } from "@/components/ConceptsReference";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -88,7 +87,6 @@ export default function Home() {
           onCardViewed={handleCardViewed}
           viewedCards={viewedCards}
         />
-        <CorrelationVisualizations />
         
         <LearnSection />
 
