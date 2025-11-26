@@ -128,49 +128,94 @@ export class MemStorage implements IStorage {
   private initializeQuizQuestions() {
     const questionsData: Omit<QuizQuestion, 'id'>[] = [
       {
-        question: "What is the range of the Pearson correlation coefficient (r)?",
-        options: ["-1 to 1", "0 to 1", "-∞ to +∞", "0 to 100"],
-        correctAnswer: 0,
-        explanation: "The Pearson correlation coefficient ranges from -1 (perfect negative correlation) to +1 (perfect positive correlation), with 0 indicating no linear correlation.",
-      },
-      {
-        question: "If r = 0.95, what type of correlation exists?",
-        options: ["Strong positive", "Weak positive", "Strong negative", "No correlation"],
-        correctAnswer: 0,
-        explanation: "A correlation coefficient of 0.95 indicates a very strong positive correlation between the variables.",
-      },
-      {
-        question: "What does r² = 0.81 mean?",
-        options: [
-          "81% of variance is explained",
-          "19% of variance is explained",
-          "The correlation is 0.81",
-          "There is 81% error"
-        ],
-        correctAnswer: 0,
-        explanation: "The coefficient of determination (r²) represents the proportion of variance in the dependent variable that is predictable from the independent variable. 0.81 means 81% of the variance is explained.",
-      },
-      {
-        question: "Which statement is TRUE about correlation and causation?",
-        options: [
-          "Correlation proves causation",
-          "Causation proves correlation",
-          "Correlation does not imply causation",
-          "They are the same thing"
-        ],
-        correctAnswer: 2,
-        explanation: "Correlation does not imply causation. Two variables can be correlated without one causing the other - there may be confounding variables or the relationship may be coincidental.",
-      },
-      {
-        question: "When should you use Spearman's correlation instead of Pearson's?",
-        options: [
-          "For continuous data only",
-          "For ordinal data or non-linear monotonic relationships",
-          "Never, Pearson is always better",
-          "Only for negative correlations"
-        ],
+        question: "Correlation measures the ____.",
+        options: ["Cause-and-effect relationship", "Direction and strength of relationship between variables", "Difference between variables", "Average value"],
         correctAnswer: 1,
-        explanation: "Spearman's correlation is preferred for ordinal data or when the relationship is monotonic but not necessarily linear. It's a non-parametric alternative to Pearson's correlation.",
+        explanation: "Correlation measures both the direction (positive, negative, or zero) and the strength of the linear relationship between two variables.",
+      },
+      {
+        question: "If correlation coefficient (r) = +1, it means:",
+        options: ["No relationship", "Perfect negative correlation", "Perfect positive correlation", "Moderate correlation"],
+        correctAnswer: 2,
+        explanation: "When r = +1, it indicates a perfect positive correlation where variables move in exactly the same proportion.",
+      },
+      {
+        question: "The value of correlation coefficient lies between:",
+        options: ["-10 to +10", "-1 to +1", "0 to 1", "-5 to +5"],
+        correctAnswer: 1,
+        explanation: "The correlation coefficient (r) always ranges from -1 to +1, where -1 is perfect negative, 0 is no correlation, and +1 is perfect positive.",
+      },
+      {
+        question: "Which method is used for ranked data?",
+        options: ["Karl Pearson's method", "Scatter diagram", "Spearman's Rank Correlation", "Least squares method"],
+        correctAnswer: 2,
+        explanation: "Spearman's Rank Correlation is specifically designed for ranked or ordinal data and non-linear monotonic relationships.",
+      },
+      {
+        question: "If price increases and demand decreases, correlation is:",
+        options: ["Positive", "Negative", "Zero", "Perfect"],
+        correctAnswer: 1,
+        explanation: "When one variable increases while another decreases, the correlation is negative (inverse relationship).",
+      },
+      {
+        question: "If the value of Pearson's correlation coefficient r is –0.95, what does it indicate?",
+        options: ["Weak positive relationship", "Strong positive relationship", "Weak negative relationship", "Strong negative relationship"],
+        correctAnswer: 3,
+        explanation: "An r value of -0.95 indicates a very strong negative correlation (close to -1), showing variables move strongly in opposite directions.",
+      },
+      {
+        question: "Which of the following is a real-life example of negative correlation?",
+        options: ["Height and weight", "Income and spending", "Temperature and heater usage", "Time studied and marks scored"],
+        correctAnswer: 2,
+        explanation: "As temperature increases, the need to use the heater decreases - this is a classic example of negative correlation.",
+      },
+      {
+        question: "Which of the following is a possible value of Pearson's correlation coefficient r?",
+        options: ["1.2", "–0.8", "2.5", "3"],
+        correctAnswer: 1,
+        explanation: "Pearson's correlation coefficient must be between -1 and +1. Only -0.8 falls within this valid range.",
+      },
+      {
+        question: "For the data X: 2, 4, 6 and Y: 10, 8, 6, the correlation is:",
+        options: ["Positive", "Negative", "Zero", "Perfect positive"],
+        correctAnswer: 1,
+        explanation: "As X increases (2→4→6), Y decreases (10→8→6), showing a negative correlation.",
+      },
+      {
+        question: "Pearson's correlation works best for ____ relationships.",
+        options: ["Curved", "Non-linear", "Linear", "Exponential"],
+        correctAnswer: 2,
+        explanation: "Pearson's correlation coefficient is specifically designed to measure linear relationships between continuous variables.",
+      },
+      {
+        question: "What primary feature of the relationship between two variables does the sign (+or -) of the covariance value indicate?",
+        options: ["The strength of the relationship", "The cause-and-effect relationship", "The average value of the data set", "The direction of the linear relationship"],
+        correctAnswer: 3,
+        explanation: "The sign of covariance indicates direction: positive means variables move together, negative means they move in opposite directions.",
+      },
+      {
+        question: "What does a Positive Covariance mean for two variables X and Y?",
+        options: ["The variables have no linear relationship", "The variables tend to move in the same direction", "The strength of the relationship is very weak", "The variables move in opposite directions"],
+        correctAnswer: 1,
+        explanation: "Positive covariance means when X is above its mean, Y tends to be above its mean, and vice versa - they move together.",
+      },
+      {
+        question: "Which formula uses the denominator (total population size)?",
+        options: ["The Population Covariance formula", "Both Sample and Population formulas", "The Correlation Coefficient formula", "The Sample Covariance formula"],
+        correctAnswer: 0,
+        explanation: "The Population Covariance formula uses N (total population size) in the denominator, while Sample Covariance uses (n-1).",
+      },
+      {
+        question: "Which of these pairs would most likely have a Negative Covariance?",
+        options: ["Years of Education and Annual Salary", "Number of Pets Owned and Favorite Color", "Height and Weight of Adults", "Temperature and Heating Costs"],
+        correctAnswer: 3,
+        explanation: "As temperature increases, heating costs decrease - this inverse relationship creates negative covariance.",
+      },
+      {
+        question: "If using the Population Covariance formula, what is the correct notation for the mean of X?",
+        options: ["μX", "Xi", "n", "σX"],
+        correctAnswer: 0,
+        explanation: "μX (mu-X) is the standard statistical notation for the population mean of variable X.",
       },
       {
         question: "If variables X and Y have r = -0.85, what does this indicate?",
