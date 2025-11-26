@@ -21,22 +21,10 @@ export function StatsOverview({
       icon: BookOpen,
       color: "text-chart-1",
     },
-    {
-      label: "Cards Viewed",
-      value: `${flashcardsViewed}/${totalFlashcards}`,
-      icon: CheckCircle2,
-      color: "text-chart-2",
-    },
-    {
-      label: "Average Score",
-      value: quizzesTaken > 0 ? `${averageScore}%` : "—",
-      icon: TrendingUp,
-      color: "text-chart-3",
-    },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-8 max-w-7xl mx-auto animate-fade-in">
+    <div className="flex justify-center px-4 py-8 max-w-7xl mx-auto animate-fade-in">
       {stats.map((stat, index) => (
         <Card key={index} className="hover-elevate" data-testid={`stat-card-${index}`}>
           <CardContent className="p-6">
