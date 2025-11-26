@@ -9,8 +9,9 @@ export function Header() {
   const [location] = useLocation();
 
   const navItems = [
-    { name: "Correlation, Coefficient and Covariance", href: "#learn", icon: BookOpen },
-    { name: "Flashcards", href: "#flashcards", icon: BookOpen },
+    { name: "Correlation", href: "#learn", icon: BookOpen },
+    { name: "Coefficient", href: "#learn", icon: BookOpen },
+    { name: "Covariance", href: "#learn", icon: BookOpen },
     { name: "Quiz", href: "#quiz", icon: BookOpen },
   ];
 
