@@ -82,11 +82,6 @@ export default function Home() {
           quizzesTaken={progress?.quizzesTaken ?? 0}
           averageScore={averageScore}
         />
-        <FlashcardSystem
-          flashcards={flashcards}
-          onCardViewed={handleCardViewed}
-          viewedCards={viewedCards}
-        />
         
         <LearnSection />
 

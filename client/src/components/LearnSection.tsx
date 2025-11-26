@@ -1,22 +1,106 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, BookOpen, Zap, AlertCircle } from "lucide-react";
+import { TrendingUp, Zap, AlertCircle, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function LearnSection() {
+  const scrollToTopic = (topicId: string) => {
+    const element = document.getElementById(topicId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="learn" className="py-12 px-4 bg-background">
+    <section className="py-12 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Main Navigation */}
         <div className="mb-12">
           <h2 className="text-4xl font-bold mb-4 text-center">Statistical Learning Path</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-center">
-            Master correlation, covariance, and statistical relationships through structured lessons
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-center mb-8">
+            Master statistical relationships through interconnected topics
           </p>
+
+          {/* Topic Navigation Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <Card
+              className="cursor-pointer hover:shadow-lg transition-shadow hover-elevate"
+              onClick={() => scrollToTopic("correlation-topic")}
+              data-testid="card-navigate-correlation"
+            >
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Topic 1: Correlation</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  Understand the fundamental concept of measuring relationships between variables
+                </p>
+                <Button variant="ghost" size="sm" className="w-full justify-between">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="cursor-pointer hover:shadow-lg transition-shadow hover-elevate"
+              onClick={() => scrollToTopic("pearson-topic")}
+              data-testid="card-navigate-pearson"
+            >
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
+                  Topic 2: Pearson Coefficient
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  Measure linear relationships with the correlation coefficient (r)
+                </p>
+                <Button variant="ghost" size="sm" className="w-full justify-between">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="cursor-pointer hover:shadow-lg transition-shadow hover-elevate"
+              onClick={() => scrollToTopic("covariance-topic")}
+              data-testid="card-navigate-covariance"
+            >
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  Topic 3: Covariance
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  Measure how variables change together using covariance
+                </p>
+                <Button variant="ghost" size="sm" className="w-full justify-between">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
-        {/* Section 1: What is Correlation */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6" data-testid="heading-correlation">1. What is Correlation?</h3>
-          
+        {/* Topic 1: Correlation */}
+        <div id="correlation-topic" className="mb-16 scroll-mt-20">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-3xl font-bold" data-testid="heading-correlation">
+              Topic 1: What is Correlation?
+            </h3>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => scrollToTopic("pearson-topic")}
+              className="gap-2"
+              data-testid="button-next-to-pearson"
+            >
+              Next Topic <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <Card data-testid="card-correlation-intro">
               <CardHeader>
@@ -56,7 +140,6 @@ export function LearnSection() {
             </Card>
           </div>
 
-          {/* Why is Correlation Important */}
           <Card className="mb-6" data-testid="card-importance">
             <CardHeader>
               <CardTitle className="text-lg">Why is Correlation Important?</CardTitle>
@@ -83,7 +166,6 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
-          {/* Types of Correlation */}
           <Card data-testid="card-correlation-types">
             <CardHeader>
               <CardTitle className="text-lg">Types of Correlation</CardTitle>
@@ -123,13 +205,35 @@ export function LearnSection() {
           </Card>
         </div>
 
-        {/* Section 2: Pearson Correlation */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" data-testid="heading-pearson">
-            <TrendingUp className="w-6 h-6" />
-            2. Pearson's Correlation Coefficient
-          </h3>
-          
+        {/* Topic 2: Pearson Correlation */}
+        <div id="pearson-topic" className="mb-16 scroll-mt-20">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-3xl font-bold flex items-center gap-2" data-testid="heading-pearson">
+              <TrendingUp className="w-8 h-8" />
+              Topic 2: Pearson's Correlation Coefficient
+            </h3>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToTopic("correlation-topic")}
+                className="gap-2"
+                data-testid="button-prev-to-correlation"
+              >
+                ← Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToTopic("covariance-topic")}
+                className="gap-2"
+                data-testid="button-next-to-covariance"
+              >
+                Next Topic <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+
           <Card className="mb-6" data-testid="card-pearson-intro">
             <CardHeader>
               <CardTitle className="text-lg">What is Pearson Correlation?</CardTitle>
@@ -201,13 +305,24 @@ export function LearnSection() {
           </Card>
         </div>
 
-        {/* Section 3: Covariance */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6 flex items-center gap-2" data-testid="heading-covariance">
-            <Zap className="w-6 h-6" />
-            3. Covariance
-          </h3>
-          
+        {/* Topic 3: Covariance */}
+        <div id="covariance-topic" className="mb-16 scroll-mt-20">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-3xl font-bold flex items-center gap-2" data-testid="heading-covariance">
+              <Zap className="w-8 h-8" />
+              Topic 3: Covariance
+            </h3>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => scrollToTopic("pearson-topic")}
+              className="gap-2"
+              data-testid="button-prev-to-pearson"
+            >
+              ← Previous
+            </Button>
+          </div>
+
           <Card className="mb-6" data-testid="card-covariance-intro">
             <CardHeader>
               <CardTitle className="text-lg">What is Covariance?</CardTitle>
