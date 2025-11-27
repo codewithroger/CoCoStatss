@@ -1036,6 +1036,146 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
+          <Card className="mb-6" data-testid="card-covariance-example-pdf1">
+            <CardHeader>
+              <CardTitle className="text-lg">PDF Example 1: Sample Covariance Calculation</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="text-xs text-muted-foreground mb-3">Calculate the sample covariance for the following student data:</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Student (i)</th>
+                        <th className="p-2 text-center">Xi (Hours)</th>
+                        <th className="p-2 text-center">Yi (Score)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">2</td><td className="p-2 text-center">4</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">4</td><td className="p-2 text-center">8</td></tr>
+                      <tr><td className="p-2">3</td><td className="p-2 text-center">6</td><td className="p-2 text-center">6</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 - Calculate means:</p>
+                    <p className="text-xs text-muted-foreground">X̄ = (2+4+6)/3 = 12/3 = <strong>4 hours</strong></p>
+                    <p className="text-xs text-muted-foreground">Ȳ = (4+8+6)/3 = 18/3 = <strong>6 marks</strong></p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Steps 2-4 - Deviations and Products:</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">i</th>
+                            <th className="p-1 text-center">(Xi-X̄)</th>
+                            <th className="p-1 text-center">(Yi-Ȳ)</th>
+                            <th className="p-1 text-center">(Xi-X̄)(Yi-Ȳ)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">1</td><td className="p-1 text-center">-2</td><td className="p-1 text-center">-2</td><td className="p-1 text-center">4</td></tr>
+                          <tr className="border-b"><td className="p-1">2</td><td className="p-1 text-center">0</td><td className="p-1 text-center">2</td><td className="p-1 text-center">0</td></tr>
+                          <tr><td className="p-1">3</td><td className="p-1 text-center">2</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] = 4 + 0 + 0 = <strong>4</strong></p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Final Calculation:</p>
+                    <p className="mb-1">Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+                    <p className="mb-1">Cov(X,Y) = 4 / (3 - 1) = 4 / 2</p>
+                    <p className="font-bold text-base">Cov(X,Y) = 2</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> Cov(X,Y) = 2 (Positive Covariance)</p>
+                    <p className="text-xs text-muted-foreground">Interpretation: Positive relationship. Students who study more tend to score higher.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-covariance-example-pdf2">
+            <CardHeader>
+              <CardTitle className="text-lg">PDF Example 2: Population Covariance Calculation</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="text-xs text-muted-foreground mb-3">Calculate the population covariance for employee years of experience and salary:</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Employee (i)</th>
+                        <th className="p-2 text-center">Xi (Years Exp.)</th>
+                        <th className="p-2 text-center">Yi (Salary $1000s)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">2</td><td className="p-2 text-center">4</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">4</td><td className="p-2 text-center">8</td></tr>
+                      <tr className="border-b"><td className="p-2">3</td><td className="p-2 text-center">6</td><td className="p-2 text-center">6</td></tr>
+                      <tr><td className="p-2">4</td><td className="p-2 text-center">8</td><td className="p-2 text-center">10</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Step 1 - Calculate population means:</p>
+                    <p className="text-xs text-muted-foreground">μₓ = (ΣXᵢ)/(N) = (2+4+6+8)/4 = 20/4 = <strong>5 years</strong></p>
+                    <p className="text-xs text-muted-foreground">μᵧ = (ΣYᵢ)/(N) = (4+8+6+10)/4 = 28/4 = <strong>7 ($1000s)</strong></p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Steps 2-4 - Deviations and Products (The Numerator):</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">i</th>
+                            <th className="p-1 text-center">(Xi-μx)</th>
+                            <th className="p-1 text-center">(Yi-μy)</th>
+                            <th className="p-1 text-center">(Xi-μx)(Yi-μy)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">1</td><td className="p-1 text-center">-3</td><td className="p-1 text-center">-3</td><td className="p-1 text-center">9</td></tr>
+                          <tr className="border-b"><td className="p-1">2</td><td className="p-1 text-center">-1</td><td className="p-1 text-center">1</td><td className="p-1 text-center">-1</td></tr>
+                          <tr className="border-b"><td className="p-1">3</td><td className="p-1 text-center">1</td><td className="p-1 text-center">-1</td><td className="p-1 text-center">-1</td></tr>
+                          <tr><td className="p-1">4</td><td className="p-1 text-center">3</td><td className="p-1 text-center">3</td><td className="p-1 text-center">9</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">The numerator Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] = 9 + (-1) + (-1) + 9 = <strong>16</strong></p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Calculate Population Covariance:</p>
+                    <p className="mb-1">σₓᵧ = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+                    <p className="mb-1">σₓᵧ = 16 / 4</p>
+                    <p className="font-bold text-base">σₓᵧ = 4</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> σₓᵧ = 4 (Positive Population Covariance)</p>
+                    <p className="text-xs text-muted-foreground">Interpretation: Positive relationship. Employees with more experience tend to have higher salaries.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="mb-6" data-testid="card-covariance-vs-correlation">
             <CardHeader>
               <CardTitle className="text-lg">Covariance vs Correlation</CardTitle>
