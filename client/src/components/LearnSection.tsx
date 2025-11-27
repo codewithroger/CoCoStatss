@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Zap, AlertCircle, ArrowRight, Rank2 } from "lucide-react";
+import { TrendingUp, Zap, AlertCircle, ArrowRight, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from "recharts";
 
@@ -696,7 +696,7 @@ export function LearnSection() {
         <div id="spearman-topic" className="mb-16 scroll-mt-20">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-3xl font-bold flex items-center gap-2" data-testid="heading-spearman">
-              <Rank2 className="w-8 h-8" />
+              <Trophy className="w-8 h-8" />
               Topic 4: Spearman's Rank Correlation
             </h3>
             <Button
