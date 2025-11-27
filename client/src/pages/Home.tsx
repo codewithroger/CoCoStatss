@@ -5,7 +5,6 @@ import { Hero } from "@/components/Hero";
 import { LearnSection } from "@/components/LearnSection";
 import { QuizInterface } from "@/components/QuizInterface";
 import { ConceptsReference } from "@/components/ConceptsReference";
-import { FormulasAndGraphs } from "@/components/FormulasAndGraphs";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Flashcard, QuizQuestion, QuizSubmission, QuizResult } from "@shared/schema";
 
@@ -49,8 +48,6 @@ export default function Home() {
         
         <LearnSection />
 
-        <FormulasAndGraphs />
-        
         <QuizInterface
           questions={quizQuestions}
           onSubmitQuiz={handleSubmitQuiz}
