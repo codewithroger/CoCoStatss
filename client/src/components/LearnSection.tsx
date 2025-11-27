@@ -635,58 +635,248 @@ export function LearnSection() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm">
-                <strong>Covariance</strong> is a measure that tells us how two variables change together. It indicates the degree and direction of the linear relationship between two variables without standardization.
+                <strong>Covariance</strong> is a measure that tells us how two variables change together. It indicates the degree and direction of the linear relationship between two variables <strong>without standardization</strong>. Unlike correlation (r), covariance values can range from negative infinity to positive infinity.
               </p>
-              <div className="bg-muted p-4 rounded-lg space-y-2">
-                <p className="text-sm font-semibold">Three Types of Covariance:</p>
-                <div className="text-sm space-y-2">
-                  <div><strong>1) Positive Covariance (r &gt; 0):</strong> Both variables increase or decrease together</div>
-                  <div><strong>2) Negative Covariance (r &lt; 0):</strong> One increases while the other decreases</div>
-                  <div><strong>3) Zero Covariance (r ≈ 0):</strong> No clear pattern between variables</div>
-                </div>
+              <div className="bg-muted p-4 rounded-lg space-y-3">
+                <p className="text-sm font-semibold">Key Characteristics:</p>
+                <ul className="text-sm space-y-2 list-disc list-inside text-muted-foreground">
+                  <li>Measures how much two variables vary from their means together</li>
+                  <li>Depends on the units of measurement (unlike correlation)</li>
+                  <li>Can be any value (not limited to [-1, 1])</li>
+                  <li>Shows only direction and magnitude, not strength as a ratio</li>
+                  <li>Foundation for understanding correlation coefficient</li>
+                </ul>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="mb-6" data-testid="card-covariance-examples">
+          <Card className="mb-6" data-testid="card-covariance-types">
             <CardHeader>
-              <CardTitle className="text-lg">Covariance Examples</CardTitle>
+              <CardTitle className="text-lg">Three Types of Covariance</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="border-l-4 border-chart-2 pl-4 bg-chart-2/5 p-3 rounded">
+                <div className="border-l-4 border-chart-2 pl-4 bg-chart-2/5 p-4 rounded">
                   <p className="font-semibold text-sm mb-2">Positive Covariance</p>
-                  <p className="text-xs text-muted-foreground">More hours studied → Higher exam scores</p>
+                  <p className="text-xs text-muted-foreground mb-2">Cov(X,Y) &gt; 0</p>
+                  <p className="text-xs text-muted-foreground">Both variables increase together OR both decrease together</p>
                 </div>
-                <div className="border-l-4 border-chart-5 pl-4 bg-chart-5/5 p-3 rounded">
+                <div className="border-l-4 border-chart-5 pl-4 bg-chart-5/5 p-4 rounded">
                   <p className="font-semibold text-sm mb-2">Negative Covariance</p>
-                  <p className="text-xs text-muted-foreground">Less study hours → Lower exam scores</p>
+                  <p className="text-xs text-muted-foreground mb-2">Cov(X,Y) &lt; 0</p>
+                  <p className="text-xs text-muted-foreground">One variable increases while the other decreases (inverse relationship)</p>
                 </div>
-                <div className="border-l-4 border-muted-foreground pl-4 bg-muted p-3 rounded">
+                <div className="border-l-4 border-muted-foreground pl-4 bg-muted p-4 rounded">
                   <p className="font-semibold text-sm mb-2">Zero Covariance</p>
-                  <p className="text-xs text-muted-foreground">More studying ≠ Always higher scores</p>
+                  <p className="text-xs text-muted-foreground mb-2">Cov(X,Y) ≈ 0</p>
+                  <p className="text-xs text-muted-foreground">No linear relationship between variables (independent)</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card data-testid="card-covariance-formula">
+          <Card className="mb-6" data-testid="card-covariance-formulas">
             <CardHeader>
               <CardTitle className="text-lg">Covariance Formulas</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm space-y-3">
-                <div>
-                  <p className="font-semibold mb-1">Population Covariance:</p>
-                  <p>Cov(X,Y) = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+              <div className="space-y-4">
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
+                  <p className="font-semibold text-sm mb-2">Population Covariance:</p>
+                  <div className="font-mono text-sm bg-muted p-3 rounded mb-2">
+                    <p>σₓᵧ = Cov(X,Y) = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Used when dealing with entire population of data</p>
                 </div>
-                <div className="border-t pt-3">
-                  <p className="font-semibold mb-1">Sample Covariance:</p>
-                  <p>Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+
+                <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg">
+                  <p className="font-semibold text-sm mb-2">Sample Covariance:</p>
+                  <div className="font-mono text-sm bg-muted p-3 rounded mb-2">
+                    <p>sₓᵧ = Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Used when working with sample data (most common)</p>
+                </div>
+
+                <div className="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg">
+                  <p className="font-semibold text-sm mb-2">Alternative Computational Formula:</p>
+                  <div className="font-mono text-sm bg-muted p-3 rounded mb-2">
+                    <p className="mb-1">Cov(X,Y) = [Σ(Xᵢ·Yᵢ) - (ΣXᵢ·ΣYᵢ)/n] / (n - 1)</p>
+                    <p className="text-xs text-muted-foreground mt-1">Easier for calculations, less affected by rounding errors</p>
+                  </div>
                 </div>
               </div>
-              <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg text-sm text-muted-foreground">
-                <p><strong>Note:</strong> Population uses N in denominator, Sample uses (n-1)</p>
+
+              <div className="bg-primary/10 p-3 rounded text-sm space-y-2">
+                <p className="font-semibold">Symbol Legend:</p>
+                <ul className="text-xs space-y-1 text-muted-foreground list-disc list-inside">
+                  <li>σₓᵧ = Population covariance</li>
+                  <li>sₓᵧ = Sample covariance</li>
+                  <li>Xᵢ, Yᵢ = Individual data values</li>
+                  <li>μₓ, μᵧ = Population means</li>
+                  <li>X̄, Ȳ = Sample means</li>
+                  <li>N = Population size, n = Sample size</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-covariance-calculation">
+            <CardHeader>
+              <CardTitle className="text-lg">How to Calculate Covariance - Step by Step</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="font-semibold text-sm mb-3">5-Step Process:</p>
+                <div className="space-y-2 text-sm">
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 1: Calculate the means</p>
+                    <p className="text-muted-foreground text-xs">Find X̄ and Ȳ (or μₓ and μᵧ for population)</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 2: Find deviations from mean</p>
+                    <p className="text-muted-foreground text-xs">Calculate (Xᵢ - X̄) and (Yᵢ - Ȳ) for each data point</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 3: Multiply the deviations</p>
+                    <p className="text-muted-foreground text-xs">For each pair, calculate (Xᵢ - X̄) × (Yᵢ - Ȳ)</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 4: Sum all products</p>
+                    <p className="text-muted-foreground text-xs">Add all the products: Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)]</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 5: Divide by n-1 (or N)</p>
+                    <p className="text-muted-foreground text-xs">Sample: divide by (n-1), Population: divide by N</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <p className="font-semibold text-sm mb-4">Worked Example: Study Hours vs Test Scores</p>
+                <p className="text-xs text-muted-foreground mb-3">A teacher examines the relationship between study hours and test scores for 5 students:</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Student</th>
+                        <th className="p-2 text-center">Study Hours (X)</th>
+                        <th className="p-2 text-center">Test Score (Y)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">A</td><td className="p-2 text-center">2</td><td className="p-2 text-center">50</td></tr>
+                      <tr className="border-b"><td className="p-2">B</td><td className="p-2 text-center">3</td><td className="p-2 text-center">60</td></tr>
+                      <tr className="border-b"><td className="p-2">C</td><td className="p-2 text-center">4</td><td className="p-2 text-center">70</td></tr>
+                      <tr className="border-b"><td className="p-2">D</td><td className="p-2 text-center">5</td><td className="p-2 text-center">80</td></tr>
+                      <tr><td className="p-2">E</td><td className="p-2 text-center">6</td><td className="p-2 text-center">90</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 - Calculate means:</p>
+                    <p className="text-xs text-muted-foreground">X̄ = (2+3+4+5+6)/5 = 20/5 = <strong>4 hours</strong></p>
+                    <p className="text-xs text-muted-foreground">Ȳ = (50+60+70+80+90)/5 = 350/5 = <strong>70 marks</strong></p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Steps 2-4 - Deviations and Products:</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">Student</th>
+                            <th className="p-1 text-center">(X-X̄)</th>
+                            <th className="p-1 text-center">(Y-Ȳ)</th>
+                            <th className="p-1 text-center">(X-X̄)(Y-Ȳ)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">A</td><td className="p-1 text-center">-2</td><td className="p-1 text-center">-20</td><td className="p-1 text-center">40</td></tr>
+                          <tr className="border-b"><td className="p-1">B</td><td className="p-1 text-center">-1</td><td className="p-1 text-center">-10</td><td className="p-1 text-center">10</td></tr>
+                          <tr className="border-b"><td className="p-1">C</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">D</td><td className="p-1 text-center">1</td><td className="p-1 text-center">10</td><td className="p-1 text-center">10</td></tr>
+                          <tr><td className="p-1">E</td><td className="p-1 text-center">2</td><td className="p-1 text-center">20</td><td className="p-1 text-center">40</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] = 40 + 10 + 0 + 10 + 40 = <strong>100</strong></p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Final Calculation:</p>
+                    <p className="mb-1">Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+                    <p className="mb-1">Cov(X,Y) = 100 / (5 - 1) = 100 / 4</p>
+                    <p className="font-bold text-base">Cov(X,Y) = 25</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> Cov(X,Y) = 25 (Positive Covariance)</p>
+                    <p className="text-xs text-muted-foreground">Interpretation: Strong positive relationship. As study hours increase, test scores tend to increase together.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-covariance-vs-correlation">
+            <CardHeader>
+              <CardTitle className="text-lg">Covariance vs Correlation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="p-3 text-left bg-muted">Property</th>
+                      <th className="p-3 text-left bg-muted">Covariance</th>
+                      <th className="p-3 text-left bg-muted">Correlation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-xs">
+                    <tr className="border-b"><td className="p-3"><strong>Definition</strong></td><td className="p-3">Measure of joint variability</td><td className="p-3">Standardized measure of association</td></tr>
+                    <tr className="border-b"><td className="p-3"><strong>Range</strong></td><td className="p-3">-∞ to +∞</td><td className="p-3">-1 to +1</td></tr>
+                    <tr className="border-b"><td className="p-3"><strong>Units</strong></td><td className="p-3">Product of X and Y units</td><td className="p-3">Unit-free (dimensionless)</td></tr>
+                    <tr className="border-b"><td className="p-3"><strong>Interpretation</strong></td><td className="p-3">Harder to interpret magnitude</td><td className="p-3">Easy to interpret strength</td></tr>
+                    <tr className="border-b"><td className="p-3"><strong>Formula</strong></td><td className="p-3">Σ[(Xᵢ-X̄)(Yᵢ-Ȳ)]/(n-1)</td><td className="p-3">Cov(X,Y)/[σₓ·σᵧ]</td></tr>
+                    <tr><td className="p-3"><strong>Use</strong></td><td className="p-3">Intermediate calculation</td><td className="p-3">Final analysis & reporting</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg text-sm mt-4">
+                <p className="text-xs"><strong>Key Insight:</strong> Correlation = Covariance / (Standard Deviation of X × Standard Deviation of Y)</p>
+                <p className="text-xs text-muted-foreground mt-1">This standardization is what allows correlation to always be between -1 and +1</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card data-testid="card-covariance-interpretation">
+            <CardHeader>
+              <CardTitle className="text-lg">Interpreting Covariance Values</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3 text-sm">
+                <div className="border-l-4 border-chart-2 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">Cov(X,Y) &gt; 0 (Positive)</p>
+                  <p className="text-xs text-muted-foreground">Variables move in same direction. Example: Height and Weight</p>
+                </div>
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">Cov(X,Y) &lt; 0 (Negative)</p>
+                  <p className="text-xs text-muted-foreground">Variables move in opposite directions. Example: Price and Demand</p>
+                </div>
+                <div className="border-l-4 border-muted-foreground pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">Cov(X,Y) ≈ 0 (Zero/Near Zero)</p>
+                  <p className="text-xs text-muted-foreground">No clear linear relationship. Example: Shoe size and Intelligence</p>
+                </div>
+                <div className="border-l-4 border-chart-3 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">Large |Cov(X,Y)| (High Magnitude)</p>
+                  <p className="text-xs text-muted-foreground">Strong joint variability (but interpretation depends on data units)</p>
+                </div>
+                <div className="border-l-4 border-chart-4 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">Small |Cov(X,Y)| (Low Magnitude)</p>
+                  <p className="text-xs text-muted-foreground">Weak joint variability (units matter - small absolute value might still indicate relationship)</p>
+                </div>
               </div>
             </CardContent>
           </Card>
