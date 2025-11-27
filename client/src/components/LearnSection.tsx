@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from "recharts";
 import { useState } from "react";
 
-const flashcards = [
+export const flashcards = [
   { q: "What is the primary function of correlation as a statistical tool?", a: "To measure and describe the strength and direction of the relationship between two or more variables." },
   { q: "What are the two key questions that correlation helps to answer about variables?", a: "Do the variables move together, and if so, how strongly?" },
   { q: "In business, how is correlation used for decision making?", a: "Companies use it to understand customer behavior, such as the relationship between income and spending." },

@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { LearnSection } from "@/components/LearnSection";
 import { QuizInterface } from "@/components/QuizInterface";
+import { FlashcardCarousel } from "@/components/FlashcardCarousel";
 import { ConceptsReference } from "@/components/ConceptsReference";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Flashcard, QuizQuestion, QuizSubmission, QuizResult } from "@shared/schema";
@@ -52,6 +53,7 @@ export default function Home() {
           questions={quizQuestions}
           onSubmitQuiz={handleSubmitQuiz}
         />
+        <FlashcardCarousel />
         <ConceptsReference />
       </main>
     </div>
