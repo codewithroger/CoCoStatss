@@ -335,23 +335,70 @@ export function LearnSection() {
 
           <Card className="mb-6" data-testid="card-pearson-intro">
             <CardHeader>
-              <CardTitle className="text-lg">What is Pearson Correlation?</CardTitle>
+              <CardTitle className="text-lg">What is Pearson's Correlation Coefficient?</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm">
-                The Pearson Correlation Coefficient (r) is a statistical measure that tells you <strong>two things</strong> about the relationship between two sets of continuous data:
+                <strong>The Pearson Correlation Coefficient (r)</strong> is a statistical measure that tells you two things about the relationship between two sets of continuous data:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div className="bg-primary/10 p-4 rounded-lg">
                   <p className="font-semibold text-sm mb-2">1. Strength</p>
                   <p className="text-sm text-muted-foreground">How close the data points are to forming a straight line</p>
                 </div>
                 <div className="bg-primary/10 p-4 rounded-lg">
                   <p className="font-semibold text-sm mb-2">2. Direction</p>
-                  <p className="text-sm text-muted-foreground">Whether variables move in same direction (positive) or opposite (negative)</p>
+                  <p className="text-sm text-muted-foreground">Whether the variables move in the same direction (positive) or opposite directions (negative)</p>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground italic">Basically: If one thing changes, does the other thing also change and how much?</p>
+              <p className="text-sm"><strong>The value of r is always between -1 and +1.</strong></p>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-pearson-interpretation-table">
+            <CardHeader>
+              <CardTitle className="text-lg">Interpreting Pearson's r - Complete Table</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-primary/10">
+                      <th className="border p-3 text-left font-semibold">Value</th>
+                      <th className="border p-3 text-left font-semibold">Meaning</th>
+                      <th className="border p-3 text-left font-semibold">Interpretation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="bg-green-50 dark:bg-green-950/10">
+                      <td className="border p-3 font-mono font-bold">+1</td>
+                      <td className="border p-3">Perfect Positive</td>
+                      <td className="border p-3">If A increases, B always increases (perfect linear relationship)</td>
+                    </tr>
+                    <tr className="bg-emerald-50 dark:bg-emerald-950/10">
+                      <td className="border p-3 font-mono">Close to +1 (e.g., +0.8)</td>
+                      <td className="border p-3">Strong Positive Correlation</td>
+                      <td className="border p-3">Variables generally move together with strong relationship</td>
+                    </tr>
+                    <tr className="bg-cyan-50 dark:bg-cyan-950/10">
+                      <td className="border p-3 font-mono">0</td>
+                      <td className="border p-3">No Relation</td>
+                      <td className="border p-3">A changes, B doesn't care - no linear relationship</td>
+                    </tr>
+                    <tr className="bg-orange-50 dark:bg-orange-950/10">
+                      <td className="border p-3 font-mono">Close to -1 (e.g., -0.8)</td>
+                      <td className="border p-3">Strong Negative Correlation</td>
+                      <td className="border p-3">As one goes up, the other goes down strongly</td>
+                    </tr>
+                    <tr className="bg-red-50 dark:bg-red-950/10">
+                      <td className="border p-3 font-mono font-bold">-1</td>
+                      <td className="border p-3">Perfect Negative</td>
+                      <td className="border p-3">If A increases, B always decreases (perfect inverse relationship)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </CardContent>
           </Card>
 
@@ -429,143 +476,147 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6" data-testid="card-pearson-calculation">
+          <Card className="mb-6" data-testid="card-pearson-examples">
             <CardHeader>
-              <CardTitle className="text-lg">How to Calculate Pearson's r - Step by Step</CardTitle>
+              <CardTitle className="text-lg">Real-World Examples</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <p className="font-semibold text-sm mb-3">5-Step Process:</p>
-                <div className="space-y-3 text-sm">
-                  <div className="bg-muted p-3 rounded-lg">
-                    <p className="font-semibold mb-1">Step 1: Calculate the means</p>
-                    <p className="text-muted-foreground text-xs">x̄ = Σx / n and ȳ = Σy / n</p>
-                  </div>
-                  <div className="bg-muted p-3 rounded-lg">
-                    <p className="font-semibold mb-1">Step 2: Find deviations from mean</p>
-                    <p className="text-muted-foreground text-xs">For each data point: (xᵢ - x̄) and (yᵢ - ȳ)</p>
-                  </div>
-                  <div className="bg-muted p-3 rounded-lg">
-                    <p className="font-semibold mb-1">Step 3: Multiply deviations</p>
-                    <p className="text-muted-foreground text-xs">(xᵢ - x̄) × (yᵢ - ȳ) for each pair, then sum all products: Σ[(xᵢ - x̄)(yᵢ - ȳ)]</p>
-                  </div>
-                  <div className="bg-muted p-3 rounded-lg">
-                    <p className="font-semibold mb-1">Step 4: Calculate sum of squared deviations</p>
-                    <p className="text-muted-foreground text-xs">Square each deviation and sum: Σ(xᵢ - x̄)² and Σ(yᵢ - ȳ)²</p>
-                  </div>
-                  <div className="bg-muted p-3 rounded-lg">
-                    <p className="font-semibold mb-1">Step 5: Apply the formula</p>
-                    <p className="text-muted-foreground text-xs">r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² × Σ(yᵢ - ȳ)²]</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t pt-4">
-                <p className="font-semibold text-sm mb-4">Worked Example: Study Hours vs Test Marks</p>
-                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
-                  <table className="w-full text-xs">
+                <p className="font-semibold text-sm mb-3 text-green-600 dark:text-green-400">Example 1: Positive Correlation (Hours of studying vs Marks)</p>
+                <div className="bg-muted p-3 rounded-lg mb-3 overflow-x-auto">
+                  <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b">
-                        <th className="p-2 text-left">Student</th>
-                        <th className="p-2 text-center">X (Hours)</th>
-                        <th className="p-2 text-center">Y (Marks)</th>
-                        <th className="p-2 text-center">X - X̄</th>
-                        <th className="p-2 text-center">Y - Ȳ</th>
-                        <th className="p-2 text-center">(X - X̄)²</th>
-                        <th className="p-2 text-center">(Y - Ȳ)²</th>
-                        <th className="p-2 text-center">(X - X̄)(Y - Ȳ)</th>
+                      <tr className="bg-primary/10">
+                        <th className="p-2 text-left">Hours of studying</th>
+                        <th className="p-2 text-center">1</th>
+                        <th className="p-2 text-center">2</th>
+                        <th className="p-2 text-center">3</th>
                       </tr>
                     </thead>
-                    <tbody className="text-xs">
-                      <tr className="border-b hover:bg-black/5">
-                        <td className="p-2">A</td>
-                        <td className="p-2 text-center">2</td>
+                    <tbody>
+                      <tr className="border-t">
+                        <td className="p-2 font-semibold">Marks</td>
                         <td className="p-2 text-center">50</td>
-                        <td className="p-2 text-center">-2</td>
-                        <td className="p-2 text-center">-20</td>
-                        <td className="p-2 text-center">4</td>
-                        <td className="p-2 text-center">400</td>
-                        <td className="p-2 text-center">40</td>
-                      </tr>
-                      <tr className="border-b hover:bg-black/5">
-                        <td className="p-2">B</td>
-                        <td className="p-2 text-center">4</td>
                         <td className="p-2 text-center">60</td>
-                        <td className="p-2 text-center">0</td>
-                        <td className="p-2 text-center">-10</td>
-                        <td className="p-2 text-center">0</td>
-                        <td className="p-2 text-center">100</td>
-                        <td className="p-2 text-center">0</td>
-                      </tr>
-                      <tr className="border-b hover:bg-black/5">
-                        <td className="p-2">C</td>
-                        <td className="p-2 text-center">6</td>
                         <td className="p-2 text-center">70</td>
-                        <td className="p-2 text-center">2</td>
-                        <td className="p-2 text-center">0</td>
-                        <td className="p-2 text-center">4</td>
-                        <td className="p-2 text-center">0</td>
-                        <td className="p-2 text-center">0</td>
-                      </tr>
-                      <tr className="border-b hover:bg-black/5">
-                        <td className="p-2">D</td>
-                        <td className="p-2 text-center">3</td>
-                        <td className="p-2 text-center">55</td>
-                        <td className="p-2 text-center">-1</td>
-                        <td className="p-2 text-center">-15</td>
-                        <td className="p-2 text-center">1</td>
-                        <td className="p-2 text-center">225</td>
-                        <td className="p-2 text-center">15</td>
-                      </tr>
-                      <tr className="font-semibold bg-primary/10">
-                        <td className="p-2">SUM</td>
-                        <td className="p-2 text-center">15</td>
-                        <td className="p-2 text-center">235</td>
-                        <td className="p-2 text-center">-1</td>
-                        <td className="p-2 text-center">-45</td>
-                        <td className="p-2 text-center">9</td>
-                        <td className="p-2 text-center">725</td>
-                        <td className="p-2 text-center">55</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                <p className="text-sm text-muted-foreground mb-2">As the number of hours invested in studying increases, marks also increase.</p>
+                <p className="text-sm font-semibold text-green-700 dark:text-green-400">r = +1 (perfect positive correlation)</p>
+              </div>
 
-                <div className="space-y-3 text-sm">
-                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
-                    <p className="font-semibold mb-1">Step 1 - Calculate Means:</p>
-                    <p className="text-xs text-muted-foreground">x̄ = 15 ÷ 4 = 3.75 hours</p>
-                    <p className="text-xs text-muted-foreground">ȳ = 235 ÷ 4 = 58.75 marks</p>
+              <div>
+                <p className="font-semibold text-sm mb-3 text-red-600 dark:text-red-400">Example 2: Negative Correlation (Exercise vs Body fat)</p>
+                <div className="bg-muted p-3 rounded-lg mb-3 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-primary/10">
+                        <th className="p-2 text-left">Exercise</th>
+                        <th className="p-2 text-center">1</th>
+                        <th className="p-2 text-center">2</th>
+                        <th className="p-2 text-center">4</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-t">
+                        <td className="p-2 font-semibold">Body fat</td>
+                        <td className="p-2 text-center">30</td>
+                        <td className="p-2 text-center">25</td>
+                        <td className="p-2 text-center">20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-sm text-muted-foreground mb-2">As you exercise more, your body fat goes down.</p>
+                <p className="text-sm font-semibold text-red-700 dark:text-red-400">r ≈ -0.98 (strong negative correlation)</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-pearson-formulas">
+            <CardHeader>
+              <CardTitle className="text-lg">How to Find r (Pearson Correlation Coefficient)</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="font-semibold text-sm mb-3">Formula 1: Deviation from Mean Formula</p>
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-900 mb-3">
+                  <div className="font-mono text-sm text-center space-y-2">
+                    <p className="text-base font-bold">r = Σ[(X - X̄)(Y - Ȳ)] / √[Σ(X - X̄)² × Σ(Y - Ȳ)²]</p>
                   </div>
+                </div>
+              </div>
 
-                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
-                    <p className="font-semibold mb-1">Steps 2-4 - Calculate Components (from table above):</p>
-                    <p className="text-xs text-muted-foreground">Σ[(xᵢ - x̄)(yᵢ - ȳ)] = 55</p>
-                    <p className="text-xs text-muted-foreground">Σ(xᵢ - x̄)² = 9</p>
-                    <p className="text-xs text-muted-foreground">Σ(yᵢ - ȳ)² = 725</p>
-                  </div>
-
-                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
-                    <p className="font-semibold mb-2">Step 5 - Final Calculation:</p>
-                    <p className="mb-1">r = 55 / √(9 × 725)</p>
-                    <p className="mb-1">r = 55 / √6525</p>
-                    <p className="mb-1">r = 55 / 80.78</p>
-                    <p className="font-bold text-base">r ≈ 0.68</p>
-                  </div>
-
-                  <div className="bg-primary/10 p-3 rounded">
-                    <p className="text-xs"><strong>Result:</strong> r ≈ 0.68 = Strong Positive Correlation</p>
-                    <p className="text-xs text-muted-foreground">Study hours and test marks have a strong positive relationship</p>
+              <div>
+                <p className="font-semibold text-sm mb-3">Formula 2: Product Moment Formula</p>
+                <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg border border-green-200 dark:border-green-900 mb-3 space-y-2">
+                  <div className="font-mono text-sm">
+                    <p className="text-base font-bold mb-2">r_xy = s_xy / (s_x × s_y)</p>
+                    <p className="text-xs text-muted-foreground">Where:</p>
+                    <p className="text-xs text-muted-foreground">r_xy = sample correlation coefficient</p>
+                    <p className="text-xs text-muted-foreground">s_xy = sample covariance</p>
+                    <p className="text-xs text-muted-foreground">s_x = sample standard deviation of x</p>
+                    <p className="text-xs text-muted-foreground">s_y = sample standard deviation of y</p>
                   </div>
                 </div>
               </div>
 
               <div className="border-t pt-4">
-                <p className="font-semibold text-sm mb-3">Alternative Formula (Computational):</p>
-                <div className="bg-muted p-3 rounded-lg font-mono text-xs space-y-2 mb-3">
-                  <p>r = [n·Σ(xy) - Σx·Σy] / √{`[n·Σ(x²) - (Σx)²] × [n·Σ(y²) - (Σy)²]`}</p>
+                <p className="font-semibold text-sm mb-4">Worked Example: Let's take an easy example</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-primary/10">
+                        <th className="p-2 text-center">X</th>
+                        <th className="p-2 text-center">Y</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-t"><td className="p-2 text-center">1</td><td className="p-2 text-center">2</td></tr>
+                      <tr><td className="p-2 text-center">2</td><td className="p-2 text-center">4</td></tr>
+                      <tr><td className="p-2 text-center">3</td><td className="p-2 text-center">6</td></tr>
+                    </tbody>
+                  </table>
                 </div>
-                <p className="text-xs text-muted-foreground">This formula is often easier to use in calculations and gives the same result</p>
+
+                <div className="space-y-2 text-sm mb-4">
+                  <p className="font-semibold">First find out the mean of X and Y:</p>
+                  <p className="text-muted-foreground">X̄ = 2    Ȳ = 4</p>
+                </div>
+
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="bg-primary/10">
+                        <th className="p-2">X</th>
+                        <th className="p-2">Y</th>
+                        <th className="p-2">X - X̄</th>
+                        <th className="p-2">(X - X̄)²</th>
+                        <th className="p-2">Y - Ȳ</th>
+                        <th className="p-2">(Y - Ȳ)²</th>
+                        <th className="p-2">(X - X̄)(Y - Ȳ)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td className="p-2">1</td><td className="p-2">2</td><td className="p-2">1-2=-1</td><td className="p-2">1</td><td className="p-2">2-4=-2</td><td className="p-2">4</td><td className="p-2">2</td></tr>
+                      <tr><td className="p-2">2</td><td className="p-2">4</td><td className="p-2">2-2=0</td><td className="p-2">0</td><td className="p-2">4-4=0</td><td className="p-2">0</td><td className="p-2">0</td></tr>
+                      <tr><td className="p-2">3</td><td className="p-2">6</td><td className="p-2">3-2=1</td><td className="p-2">1</td><td className="p-2">6-4=2</td><td className="p-2">4</td><td className="p-2">2</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-2 font-mono text-sm bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg">
+                  <p><strong>Using the formula:</strong></p>
+                  <p>Σ (X - X̄)(Y - Ȳ) = 2 + 0 + 2 = 4</p>
+                  <p>Σ(X - X̄)² = 1 + 0 + 1 = 2</p>
+                  <p>Σ(Y - Ȳ)² = 4 + 0 + 4 = 8</p>
+                  <p className="border-t pt-2 mt-2"><strong>r = 4 / √(2 × 8)</strong></p>
+                  <p><strong>r = 4 / √16</strong></p>
+                  <p><strong>r = 4 / 4 = 1</strong></p>
+                  <p className="font-bold text-lg mt-2"><strong>r = +1</strong></p>
+                </div>
               </div>
             </CardContent>
           </Card>
