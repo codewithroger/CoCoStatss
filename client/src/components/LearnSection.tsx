@@ -635,7 +635,7 @@ export function LearnSection() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm">
-                <strong>Covariance</strong> is a measure that tells us how two variables change together. It indicates the degree and direction of the linear relationship between two variables <strong>without standardization</strong>. Unlike correlation (r), covariance values can range from negative infinity to positive infinity.
+                <strong>Covariance</strong> is a statistical measure that indicates the degree and direction of the linear relationship between two variables. It shows how two variables vary together.
               </p>
               <div className="bg-muted p-4 rounded-lg space-y-3">
                 <p className="text-sm font-semibold">Key Characteristics:</p>
