@@ -936,6 +936,290 @@ export function LearnSection() {
           </Card>
         </div>
 
+        {/* Examples for Practicals */}
+        <div id="practicals-section" className="mb-16 scroll-mt-20">
+          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2" data-testid="heading-practicals">
+            <AlertCircle className="w-8 h-8" />
+            Examples for Practicals
+          </h2>
+
+          {/* Question 1 */}
+          <Card className="mb-6" data-testid="card-practical-q1">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.1: Correlation with a Negative Trend</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <p className="text-sm"><strong>Scenario:</strong> A local business is trying to find the relationship between Price (X, in $) and Demand (Y, units sold). Data for four weeks:</p>
+                <div className="bg-muted p-3 rounded-lg overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Week</th>
+                        <th className="p-2 text-center">Price (X)</th>
+                        <th className="p-2 text-center">Demand (Y)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">10</td><td className="p-2 text-center">50</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">12</td><td className="p-2 text-center">40</td></tr>
+                      <tr className="border-b"><td className="p-2">3</td><td className="p-2 text-center">14</td><td className="p-2 text-center">30</td></tr>
+                      <tr><td className="p-2">4</td><td className="p-2 text-center">16</td><td className="p-2 text-center">20</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <p className="font-semibold">Given: X̄ = $13, Ȳ = 35 units</p>
+                  
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">(a) Calculate three required components for r formula:</p>
+                    <div className="font-mono text-xs space-y-1 text-muted-foreground">
+                      <p>• Σ(Xᵢ-X̄)(Yᵢ-Ȳ) = (-3)(-15) + (-1)(-5) + (1)(5) + (3)(15) = 45 + 5 + 5 + 45 = <strong>100</strong></p>
+                      <p>• Σ(Xᵢ-X̄)² = (-3)² + (-1)² + (1)² + (3)² = 9 + 1 + 1 + 9 = <strong>20</strong></p>
+                      <p>• Σ(Yᵢ-Ȳ)² = (-15)² + (-5)² + (5)² + (15)² = 225 + 25 + 25 + 225 = <strong>500</strong></p>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">(b) Calculate Pearson's r:</p>
+                    <div className="font-mono text-xs space-y-1">
+                      <p>r = Σ(Xᵢ-X̄)(Yᵢ-Ȳ) / √[Σ(Xᵢ-X̄)² × Σ(Yᵢ-Ȳ)²]</p>
+                      <p>r = 100 / √(20 × 500) = 100 / √10000</p>
+                      <p>r = 100 / 100 = <strong>-1.0</strong></p>
+                      <p className="text-muted-foreground">Perfect negative correlation: as price increases, demand always decreases</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Question 2 */}
+          <Card className="mb-6" data-testid="card-practical-q2">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.2: Population Covariance Calculation</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <p className="text-sm"><strong>Scenario:</strong> A scientist studies population (N=5) of local plant species measuring Height (X, cm) and Number of Leaves (Y):</p>
+                <div className="bg-muted p-3 rounded-lg overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Plant</th>
+                        <th className="p-2 text-center">Height (X)</th>
+                        <th className="p-2 text-center">Leaves (Y)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">10</td><td className="p-2 text-center">2</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">12</td><td className="p-2 text-center">4</td></tr>
+                      <tr className="border-b"><td className="p-2">3</td><td className="p-2 text-center">14</td><td className="p-2 text-center">3</td></tr>
+                      <tr className="border-b"><td className="p-2">4</td><td className="p-2 text-center">16</td><td className="p-2 text-center">5</td></tr>
+                      <tr><td className="p-2">5</td><td className="p-2 text-center">18</td><td className="p-2 text-center">6</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">(a) Calculate population means:</p>
+                    <div className="font-mono text-xs space-y-1 text-muted-foreground">
+                      <p>μₓ = (10 + 12 + 14 + 16 + 18) / 5 = 70 / 5 = <strong>14 cm</strong></p>
+                      <p>μᵧ = (2 + 4 + 3 + 5 + 6) / 5 = 20 / 5 = <strong>4 leaves</strong></p>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">(b) Calculate population covariance:</p>
+                    <div className="font-mono text-xs space-y-1">
+                      <p>Cov(X,Y) = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+                      <p className="text-muted-foreground">Deviations: (-4,-2), (-2,0), (0,-1), (2,1), (4,2)</p>
+                      <p>Products: 8 + 0 + 0 + 2 + 8 = 18</p>
+                      <p>Cov(X,Y) = 18 / 5 = <strong>3.6</strong></p>
+                      <p className="text-muted-foreground">Positive covariance: height and leaf count increase together</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Question 3 */}
+          <Card className="mb-6" data-testid="card-practical-q3">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.3: Why is Correlation Always Between –1 and +1?</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3 text-sm">
+                <div className="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg space-y-3">
+                  <p className="font-semibold">Mathematical Explanation:</p>
+                  
+                  <div className="space-y-2">
+                    <p>The Pearson correlation coefficient uses the formula:</p>
+                    <p className="font-mono text-xs bg-muted p-2 rounded">r = Σ(Xᵢ-X̄)(Yᵢ-Ȳ) / √[Σ(Xᵢ-X̄)² × Σ(Yᵢ-Ȳ)²]</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <p><strong>By Cauchy-Schwarz Inequality:</strong></p>
+                    <p className="text-xs text-muted-foreground">The numerator [sum of products of deviations] is always ≤ denominator [geometric mean of squared deviations]</p>
+                    <p className="font-mono text-xs bg-muted p-2 rounded">|Σ(Xᵢ-X̄)(Yᵢ-Ȳ)| ≤ √[Σ(Xᵢ-X̄)² × Σ(Yᵢ-Ȳ)²]</p>
+                  </div>
+
+                  <div className="border-l-4 border-chart-2 pl-3">
+                    <p><strong>Result:</strong></p>
+                    <p className="text-xs text-muted-foreground">Therefore: -1 ≤ r ≤ +1</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <p><strong>Boundary Cases:</strong></p>
+                    <ul className="list-disc list-inside text-xs space-y-1 text-muted-foreground">
+                      <li>r = +1: Perfect positive linear relationship (all points on upward line)</li>
+                      <li>r = -1: Perfect negative linear relationship (all points on downward line)</li>
+                      <li>r = 0: No linear relationship (points scattered randomly)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Question 4 */}
+          <Card className="mb-6" data-testid="card-practical-q4">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.4: Calculate Spearman's Rank Correlation</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <p className="text-sm"><strong>Scenario:</strong> Marks of 6 students in Economics and Statistics:</p>
+                <div className="bg-muted p-3 rounded-lg overflow-x-auto mb-4">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Student</th>
+                        <th className="p-2 text-center">A</th>
+                        <th className="p-2 text-center">B</th>
+                        <th className="p-2 text-center">C</th>
+                        <th className="p-2 text-center">D</th>
+                        <th className="p-2 text-center">E</th>
+                        <th className="p-2 text-center">F</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="p-2 font-semibold">Economics</td>
+                        <td className="p-2 text-center">50</td>
+                        <td className="p-2 text-center">60</td>
+                        <td className="p-2 text-center">40</td>
+                        <td className="p-2 text-center">75</td>
+                        <td className="p-2 text-center">65</td>
+                        <td className="p-2 text-center">80</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 font-semibold">Statistics</td>
+                        <td className="p-2 text-center">55</td>
+                        <td className="p-2 text-center">65</td>
+                        <td className="p-2 text-center">45</td>
+                        <td className="p-2 text-center">70</td>
+                        <td className="p-2 text-center">60</td>
+                        <td className="p-2 text-center">85</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Step 1 & 2: Assign Ranks and Find d:</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs mt-2">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">Student</th>
+                            <th className="p-1 text-center">Econ Rank</th>
+                            <th className="p-1 text-center">Stat Rank</th>
+                            <th className="p-1 text-center">d</th>
+                            <th className="p-1 text-center">d²</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">A</td><td className="p-1 text-center">3</td><td className="p-1 text-center">3</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">B</td><td className="p-1 text-center">4</td><td className="p-1 text-center">4</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">C</td><td className="p-1 text-center">1</td><td className="p-1 text-center">1</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">D</td><td className="p-1 text-center">5</td><td className="p-1 text-center">5</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">E</td><td className="p-1 text-center">2</td><td className="p-1 text-center">2</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">F</td><td className="p-1 text-center">6</td><td className="p-1 text-center">6</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="font-semibold bg-primary/10"><td className="p-1" colSpan={4}>Σd² =</td><td className="p-1 text-center">0</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 3-6: Calculate ρ:</p>
+                    <p className="mb-1">n = 6 students</p>
+                    <p className="mb-1">ρ = 1 - [6Σd²] / [n(n² - 1)]</p>
+                    <p className="mb-1">ρ = 1 - (6 × 0) / [6(36 - 1)]</p>
+                    <p className="mb-1">ρ = 1 - 0 / (6 × 35) = 1 - 0 / 210</p>
+                    <p className="font-bold text-base">ρ = 1.0</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> ρ = 1.0 = Perfect Positive Correlation</p>
+                    <p className="text-xs text-muted-foreground">Students rank identically in both subjects - perfect monotonic relationship</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Question 5 */}
+          <Card data-testid="card-practical-q5">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.5: Limitations of Correlation as a Measure of Association</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3 text-sm">
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">1. Does Not Imply Causation</p>
+                  <p className="text-xs text-muted-foreground">Two variables moving together doesn't mean one causes the other. For example, ice cream sales and drowning deaths are correlated but both are caused by warm weather.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">2. Outliers Can Distort Results</p>
+                  <p className="text-xs text-muted-foreground">Extreme values can significantly change the correlation coefficient. One outlier can shift r from 0.8 to 0.3, making the correlation appear weaker than it truly is.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">3. Only Measures Linear Relationships</p>
+                  <p className="text-xs text-muted-foreground">Pearson's r = 0 doesn't mean no relationship exists. A curved or U-shaped relationship will show r ≈ 0 even though variables are strongly related.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">4. Requires Accurate Data</p>
+                  <p className="text-xs text-muted-foreground">Measurement errors, missing values, or incorrect data entry lead to misleading correlation results. "Garbage in, garbage out"</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">5. Assumes Bivariate Normal Distribution</p>
+                  <p className="text-xs text-muted-foreground">Pearson's correlation is most reliable with normally distributed data. For skewed or non-normal data, Spearman's correlation is preferable.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">6. Sensitive to Scale Changes</p>
+                  <p className="text-xs text-muted-foreground">While the correlation coefficient itself doesn't change with scale, the practical interpretation can be affected by different units of measurement.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold mb-1">7. Sample Size Matters</p>
+                  <p className="text-xs text-muted-foreground">With small sample sizes, correlation can be high by chance. Always verify statistical significance (p-value) alongside correlation coefficient.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Key Takeaways */}
         <Card className="border-primary/20 bg-primary/5" data-testid="card-takeaways">
           <CardHeader>
