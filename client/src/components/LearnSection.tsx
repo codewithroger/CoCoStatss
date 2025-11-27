@@ -817,6 +817,100 @@ export function LearnSection() {
                   </div>
                 </div>
               </div>
+
+              <div className="border-t pt-6">
+                <p className="font-semibold text-sm mb-4">Worked Example 2: Plant Height vs Number of Leaves</p>
+                <p className="text-xs text-muted-foreground mb-3">A botanist examines the relationship between height and leaf count for a population of 5 plants:</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Plant</th>
+                        <th className="p-2 text-center">Height (X, cm)</th>
+                        <th className="p-2 text-center">Leaves (Y)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">10</td><td className="p-2 text-center">2</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">12</td><td className="p-2 text-center">4</td></tr>
+                      <tr className="border-b"><td className="p-2">3</td><td className="p-2 text-center">14</td><td className="p-2 text-center">3</td></tr>
+                      <tr className="border-b"><td className="p-2">4</td><td className="p-2 text-center">16</td><td className="p-2 text-center">5</td></tr>
+                      <tr><td className="p-2">5</td><td className="p-2 text-center">18</td><td className="p-2 text-center">6</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 - Calculate population means:</p>
+                    <p className="text-xs text-muted-foreground">μₓ = (10 + 12 + 14 + 16 + 18) / 5 = 70 / 5 = <strong>14 cm</strong></p>
+                    <p className="text-xs text-muted-foreground">μᵧ = (2 + 4 + 3 + 5 + 6) / 5 = 20 / 5 = <strong>4 leaves</strong></p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Steps 2-4 - Deviations and Products:</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">Plant</th>
+                            <th className="p-1 text-center">(X-μₓ)</th>
+                            <th className="p-1 text-center">(Y-μᵧ)</th>
+                            <th className="p-1 text-center">(X-μₓ)(Y-μᵧ)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">1</td><td className="p-1 text-center">-4</td><td className="p-1 text-center">-2</td><td className="p-1 text-center">8</td></tr>
+                          <tr className="border-b"><td className="p-1">2</td><td className="p-1 text-center">-2</td><td className="p-1 text-center">0</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">3</td><td className="p-1 text-center">0</td><td className="p-1 text-center">-1</td><td className="p-1 text-center">0</td></tr>
+                          <tr className="border-b"><td className="p-1">4</td><td className="p-1 text-center">2</td><td className="p-1 text-center">1</td><td className="p-1 text-center">2</td></tr>
+                          <tr><td className="p-1">5</td><td className="p-1 text-center">4</td><td className="p-1 text-center">2</td><td className="p-1 text-center">8</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] = 8 + 0 + 0 + 2 + 8 = <strong>18</strong></p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Final Calculation (Population):</p>
+                    <p className="mb-1">σₓᵧ = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+                    <p className="mb-1">σₓᵧ = 18 / 5 = <strong>3.6</strong></p>
+                    <p className="text-base">Result: Cov(X,Y) = 3.6</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> Cov(X,Y) = 3.6 (Positive Covariance)</p>
+                    <p className="text-xs text-muted-foreground">Interpretation: Positive relationship. Taller plants tend to have more leaves.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-covariance-examples-summary">
+            <CardHeader>
+              <CardTitle className="text-lg">Covariance Examples Summary Table</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="p-3 text-left bg-muted">Example</th>
+                      <th className="p-3 text-center bg-muted">Sample/Population</th>
+                      <th className="p-3 text-center bg-muted">Cov(X,Y)</th>
+                      <th className="p-3 text-left bg-muted">Interpretation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-xs">
+                    <tr className="border-b"><td className="p-3"><strong>Study Hours vs Scores</strong></td><td className="p-3 text-center">Sample (n=5)</td><td className="p-3 text-center"><strong>25</strong></td><td className="p-3">Strong positive: more study → higher scores</td></tr>
+                    <tr><td className="p-3"><strong>Plant Height vs Leaves</strong></td><td className="p-3 text-center">Population (N=5)</td><td className="p-3 text-center"><strong>3.6</strong></td><td className="p-3">Positive: taller plants have more leaves</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg text-sm mt-4">
+                <p className="text-xs"><strong>Note:</strong> Same data, different divisor changes the result. Sample uses (n-1) for unbiased estimate, Population uses N for exact value.</p>
+              </div>
             </CardContent>
           </Card>
 
