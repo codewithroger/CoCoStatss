@@ -355,70 +355,76 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6" data-testid="card-pearson-interpretation">
+          <Card className="mb-6" data-testid="card-strength-scale">
             <CardHeader>
-              <CardTitle className="text-lg">Interpreting Pearson's r</CardTitle>
+              <CardTitle className="text-lg">Correlation Coefficient Range: +1 to -1 Table</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex gap-3 text-sm">
-                  <div className="font-mono font-bold min-w-fit">r = +1</div>
-                  <div><span className="font-semibold">Perfect Positive:</span> Variables always increase together exactly</div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <p className="font-semibold">Complete Interpretation Guide:</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-950/20 rounded border border-green-200 dark:border-green-900">
+                      <span className="font-semibold">Perfect Positive</span>
+                      <span className="font-mono font-bold">r = +1.00</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded border border-emerald-200 dark:border-emerald-900">
+                      <span>Very Strong Positive</span>
+                      <span className="font-mono">r = +0.80 to +0.99</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-teal-50 dark:bg-teal-950/20 rounded border border-teal-200 dark:border-teal-900">
+                      <span>Strong Positive</span>
+                      <span className="font-mono">r = +0.60 to +0.79</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-cyan-50 dark:bg-cyan-950/20 rounded border border-cyan-200 dark:border-cyan-900">
+                      <span>Moderate Positive</span>
+                      <span className="font-mono">r = +0.40 to +0.59</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-950/20 rounded border border-blue-200 dark:border-blue-900">
+                      <span>Weak Positive</span>
+                      <span className="font-mono">r = +0.20 to +0.39</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-950/20 rounded border border-slate-200 dark:border-slate-900">
+                      <span>No Correlation</span>
+                      <span className="font-mono">r = 0.00</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-950/20 rounded border border-orange-200 dark:border-orange-900">
+                      <span>Weak Negative</span>
+                      <span className="font-mono">r = -0.20 to -0.39</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-amber-50 dark:bg-amber-950/20 rounded border border-amber-200 dark:border-amber-900">
+                      <span>Moderate Negative</span>
+                      <span className="font-mono">r = -0.40 to -0.59</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-950/20 rounded border border-red-200 dark:border-red-900">
+                      <span>Strong Negative</span>
+                      <span className="font-mono">r = -0.60 to -0.79</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-rose-50 dark:bg-rose-950/20 rounded border border-rose-200 dark:border-rose-900">
+                      <span>Very Strong Negative</span>
+                      <span className="font-mono">r = -0.80 to -0.99</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-pink-50 dark:bg-pink-950/20 rounded border border-pink-200 dark:border-pink-900">
+                      <span className="font-semibold">Perfect Negative</span>
+                      <span className="font-mono font-bold">r = -1.00</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-3 text-sm">
-                  <div className="font-mono font-bold min-w-fit">r ≈ +0.8</div>
-                  <div><span className="font-semibold">Strong Positive:</span> Variables generally move together</div>
+                <div>
+                  <ResponsiveContainer width="100%" height={420}>
+                    <BarChart data={strengthData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
+                      <YAxis domain={[-1, 1]} />
+                      <Tooltip formatter={(value) => value.toFixed(2)} />
+                      <Bar dataKey="value" radius={[8, 8, 0, 0]}>
+                        {strengthData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
-                <div className="flex gap-3 text-sm">
-                  <div className="font-mono font-bold min-w-fit">r = 0</div>
-                  <div><span className="font-semibold">No Relation:</span> A changes, B doesn't care</div>
-                </div>
-                <div className="flex gap-3 text-sm">
-                  <div className="font-mono font-bold min-w-fit">r ≈ -0.8</div>
-                  <div><span className="font-semibold">Strong Negative:</span> As one goes up, other goes down strongly</div>
-                </div>
-                <div className="flex gap-3 text-sm">
-                  <div className="font-mono font-bold min-w-fit">r = -1</div>
-                  <div><span className="font-semibold">Perfect Negative:</span> If A increases, B always decreases</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card data-testid="card-pearson-examples">
-            <CardHeader>
-              <CardTitle className="text-lg">Real Examples</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="border-l-4 border-chart-2 pl-4">
-                <h4 className="font-semibold text-sm mb-2">Study Hours vs Marks</h4>
-                <p className="text-xs text-muted-foreground mb-2">Hours: 1, 2, 3 | Marks: 50, 60, 70</p>
-                <p className="text-xs font-medium">Result: r = +1 (Perfect Positive Correlation)</p>
-              </div>
-              <div className="border-l-4 border-chart-5 pl-4">
-                <h4 className="font-semibold text-sm mb-2">Exercise vs Body Fat</h4>
-                <p className="text-xs text-muted-foreground mb-2">Exercise: 1, 2, 4 | Body Fat: 30, 25, 20</p>
-                <p className="text-xs font-medium">Result: r ≈ -0.98 (Strong Negative Correlation)</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="mb-6" data-testid="card-pearson-formula">
-            <CardHeader>
-              <CardTitle className="text-lg">Pearson Formula</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm space-y-2">
-                <p className="font-semibold mb-2">Formula:</p>
-                <p className="text-base">r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² × Σ(yᵢ - ȳ)²]</p>
-              </div>
-              <div className="space-y-2 text-sm">
-                <p><strong>Where:</strong></p>
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>xᵢ, yᵢ = individual data points</li>
-                  <li>x̄, ȳ = means of x and y</li>
-                  <li>r ∈ [-1, 1] = correlation coefficient</li>
-                </ul>
               </div>
             </CardContent>
           </Card>
@@ -564,100 +570,49 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
-          <Card data-testid="card-pearson-graphs">
+          <Card className="mb-6" data-testid="card-pearson-graphs">
             <CardHeader>
-              <CardTitle className="text-lg">Visualization of Correlation Types</CardTitle>
+              <CardTitle className="text-lg">Graphical Representation of Correlation Types</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <p className="text-sm font-semibold mb-3">Positive (r ≈ +0.95)</p>
+                  <p className="text-sm font-semibold mb-3 text-green-600 dark:text-green-400">Positive Correlation (r ≈ +0.95)</p>
+                  <p className="text-xs text-muted-foreground mb-2">Both variables move in the same direction</p>
                   <ResponsiveContainer width="100%" height={200}>
                     <ScatterChart margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis type="number" dataKey="x" />
                       <YAxis type="number" dataKey="y" />
                       <Tooltip />
-                      <Scatter data={positiveData} fill="#ef4444" />
+                      <Scatter data={positiveData} fill="#22c55e" />
                     </ScatterChart>
                   </ResponsiveContainer>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold mb-3">Negative (r ≈ -0.95)</p>
+                  <p className="text-sm font-semibold mb-3 text-red-600 dark:text-red-400">Negative Correlation (r ≈ -0.95)</p>
+                  <p className="text-xs text-muted-foreground mb-2">Variables move in opposite directions</p>
                   <ResponsiveContainer width="100%" height={200}>
                     <ScatterChart margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis type="number" dataKey="x" />
                       <YAxis type="number" dataKey="y" domain={[0, 12]} />
                       <Tooltip />
-                      <Scatter data={negativeData} fill="#0ea5e9" />
+                      <Scatter data={negativeData} fill="#ef4444" />
                     </ScatterChart>
                   </ResponsiveContainer>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold mb-3">No Correlation (r ≈ 0)</p>
+                  <p className="text-sm font-semibold mb-3 text-slate-600 dark:text-slate-400">No Correlation (r ≈ 0)</p>
+                  <p className="text-xs text-muted-foreground mb-2">No relationship between variables</p>
                   <ResponsiveContainer width="100%" height={200}>
                     <ScatterChart margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis type="number" dataKey="x" />
                       <YAxis type="number" dataKey="y" domain={[0, 10]} />
                       <Tooltip />
-                      <Scatter data={noCorrelationData} fill="#84cc16" />
+                      <Scatter data={noCorrelationData} fill="#64748b" />
                     </ScatterChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card data-testid="card-strength-scale">
-            <CardHeader>
-              <CardTitle className="text-lg">Correlation Strength Scale</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <p className="font-semibold">Interpretation Guide:</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Perfect:</span>
-                      <span className="font-mono">|r| = 1.00</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Very Strong:</span>
-                      <span className="font-mono">|r| = 0.80-0.99</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Strong:</span>
-                      <span className="font-mono">|r| = 0.60-0.79</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Moderate:</span>
-                      <span className="font-mono">|r| = 0.40-0.59</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Weak:</span>
-                      <span className="font-mono">|r| = 0.20-0.39</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-muted rounded">
-                      <span>Very Weak:</span>
-                      <span className="font-mono">|r| = 0.00-0.19</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <ResponsiveContainer width="100%" height={280}>
-                    <BarChart data={strengthData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
-                      <YAxis domain={[0, 1]} />
-                      <Tooltip formatter={(value) => value.toFixed(2)} />
-                      <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                        {strengthData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
-                      </Bar>
-                    </BarChart>
                   </ResponsiveContainer>
                 </div>
               </div>
