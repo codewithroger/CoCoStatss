@@ -1777,6 +1777,41 @@ export function LearnSection() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Question 6: Flashcard Practice */}
+          <Card className="mb-6" data-testid="card-practical-q6">
+            <CardHeader>
+              <CardTitle className="text-lg">Q.6: Key Flashcard Concepts Review</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3 text-sm">
+                <div className="border-l-4 border-chart-2 pl-4 bg-green-50 dark:bg-green-950/10 p-3 rounded">
+                  <p className="font-semibold mb-2">What is Pearson Correlation Coefficient?</p>
+                  <p className="text-xs text-muted-foreground">It is a statistical measure that tells you two things about the relationship between two sets of continuous data: (1) Strength - how close data points are to forming a straight line, and (2) Direction - whether variables move in the same direction (positive) or opposite directions (negative).</p>
+                </div>
+
+                <div className="border-l-4 border-chart-3 pl-4 bg-blue-50 dark:bg-blue-950/10 p-3 rounded">
+                  <p className="font-semibold mb-2">What does covariance measure?</p>
+                  <p className="text-xs text-muted-foreground">Covariance is a statistical measure that indicates how two variables change or vary together. It shows the degree and direction of the linear relationship between two variables. Positive covariance means both increase together, negative means they move inversely.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-4 pl-4 bg-purple-50 dark:bg-purple-950/10 p-3 rounded">
+                  <p className="font-semibold mb-2">What is Spearman's rank correlation?</p>
+                  <p className="text-xs text-muted-foreground">Spearman's correlation measures how well the relationship between two variables can be described using a monotonic function, based on their ranks. It is used when data is not normally distributed or when data is ordinal (ranked).</p>
+                </div>
+
+                <div className="border-l-4 border-chart-5 pl-4 bg-orange-50 dark:bg-orange-950/10 p-3 rounded">
+                  <p className="font-semibold mb-2">What is a monotonic relationship?</p>
+                  <p className="text-xs text-muted-foreground">A monotonic relationship is where as one variable increases, the other variable consistently increases or consistently decreases. It doesn't have to be linear, but the direction of change is consistent throughout.</p>
+                </div>
+
+                <div className="border-l-4 border-chart-1 pl-4 bg-red-50 dark:bg-red-950/10 p-3 rounded">
+                  <p className="font-semibold mb-2">What is the difference between population and sample covariance?</p>
+                  <p className="text-xs text-muted-foreground">Population covariance divides by N (total population), while sample covariance divides by (n-1). The (n-1) adjustment in sample covariance provides an unbiased estimate of the true population covariance.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Key Takeaways */}

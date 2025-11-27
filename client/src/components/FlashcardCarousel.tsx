@@ -16,7 +16,7 @@ export function FlashcardCarousel() {
   const progressPercentage = ((currentCard + 1) / flashcards.length) * 100;
 
   return (
-    <section className="py-12 px-4 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section className="py-12 px-4 bg-gradient-to-br from-primary/5 to-accent/5" id="flashcard-carousel" data-testid="section-flashcard-carousel">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center" data-testid="heading-flashcard-carousel">
           Flashcard Carousel - Auto Learning
