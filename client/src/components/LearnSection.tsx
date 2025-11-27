@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Zap, AlertCircle, ArrowRight } from "lucide-react";
+import { TrendingUp, Zap, AlertCircle, ArrowRight, Rank2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from "recharts";
 
@@ -607,15 +607,26 @@ export function LearnSection() {
               <Zap className="w-8 h-8" />
               Topic 3: Covariance
             </h3>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => scrollToTopic("pearson-topic")}
-              className="gap-2"
-              data-testid="button-prev-to-pearson"
-            >
-              ← Previous
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToTopic("pearson-topic")}
+                className="gap-2"
+                data-testid="button-prev-to-pearson"
+              >
+                ← Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => scrollToTopic("spearman-topic")}
+                className="gap-2"
+                data-testid="button-next-to-spearman"
+              >
+                Next Topic <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
 
           <Card className="mb-6" data-testid="card-covariance-intro">
@@ -676,6 +687,250 @@ export function LearnSection() {
               </div>
               <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg text-sm text-muted-foreground">
                 <p><strong>Note:</strong> Population uses N in denominator, Sample uses (n-1)</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Topic 4: Spearman's Rank Correlation */}
+        <div id="spearman-topic" className="mb-16 scroll-mt-20">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-3xl font-bold flex items-center gap-2" data-testid="heading-spearman">
+              <Rank2 className="w-8 h-8" />
+              Topic 4: Spearman's Rank Correlation
+            </h3>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => scrollToTopic("covariance-topic")}
+              className="gap-2"
+              data-testid="button-prev-to-covariance"
+            >
+              ← Previous
+            </Button>
+          </div>
+
+          <Card className="mb-6" data-testid="card-spearman-intro">
+            <CardHeader>
+              <CardTitle className="text-lg">What is Spearman's Rank Correlation?</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm">
+                <strong>Spearman's Rank Correlation</strong> measures how well two things move together in terms of <strong>rank (positions)</strong>, not actual values. It answers: if one variable increases, does the other also increase (or decrease) in a consistent pattern?
+              </p>
+              <div className="bg-muted p-4 rounded-lg space-y-3">
+                <p className="text-sm font-semibold mb-2">It measures a <strong>monotonic relationship</strong>:</p>
+                <div className="text-sm space-y-2">
+                  <div className="flex gap-2"><span className="font-semibold min-w-fit">Positive Monotonic:</span> <span className="text-muted-foreground">As one variable increases, the other always increases</span></div>
+                  <div className="flex gap-2"><span className="font-semibold min-w-fit">Negative Monotonic:</span> <span className="text-muted-foreground">As one variable increases, the other always decreases</span></div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-spearman-why">
+            <CardHeader>
+              <CardTitle className="text-lg">Why Use Spearman's Correlation?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="border-l-4 border-chart-2 pl-4">
+                  <p className="font-semibold mb-2">When data is not normally distributed</p>
+                  <p className="text-xs text-muted-foreground">Works with data that don't follow typical distribution patterns</p>
+                </div>
+                <div className="border-l-4 border-chart-3 pl-4">
+                  <p className="font-semibold mb-2">When data is ordinal (ranked)</p>
+                  <p className="text-xs text-muted-foreground">Works with ranked or categorical data (1st, 2nd, 3rd, etc.)</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-spearman-formula">
+            <CardHeader>
+              <CardTitle className="text-lg">Spearman Formula</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="bg-muted p-4 rounded-lg font-mono text-sm space-y-2">
+                <p className="font-semibold mb-2">Formula:</p>
+                <p className="text-base">ρ = 1 - [6Σd²] / [n(n² - 1)]</p>
+              </div>
+              <div className="space-y-2 text-sm">
+                <p><strong>Where:</strong></p>
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                  <li>ρ (rho) = Spearman's rank correlation coefficient</li>
+                  <li>d = difference in ranks for each pair</li>
+                  <li>Σd² = sum of squared differences</li>
+                  <li>n = number of data pairs</li>
+                  <li>ρ ∈ [-1, 1] = correlation coefficient</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-spearman-values">
+            <CardHeader>
+              <CardTitle className="text-lg">Interpreting Spearman's ρ Values</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3 text-sm">
+                <div className="flex gap-3 bg-muted p-3 rounded-lg">
+                  <div className="font-mono font-bold min-w-fit">ρ = +1</div>
+                  <div><span className="font-semibold">Perfect Positive:</span> Ranks move together exactly</div>
+                </div>
+                <div className="flex gap-3 bg-muted p-3 rounded-lg">
+                  <div className="font-mono font-bold min-w-fit">ρ = 0</div>
+                  <div><span className="font-semibold">No Relation:</span> Ranks have no relationship</div>
+                </div>
+                <div className="flex gap-3 bg-muted p-3 rounded-lg">
+                  <div className="font-mono font-bold min-w-fit">ρ = -1</div>
+                  <div><span className="font-semibold">Perfect Negative:</span> Ranks move opposite exactly</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-spearman-calculation">
+            <CardHeader>
+              <CardTitle className="text-lg">How to Calculate Spearman's ρ - Step by Step</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="font-semibold text-sm mb-3">6-Step Process:</p>
+                <div className="space-y-3 text-sm">
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 1: Rank the data</p>
+                    <p className="text-muted-foreground text-xs">Convert raw scores to ranks (1st, 2nd, 3rd...)</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 2: Find the difference in ranks (d)</p>
+                    <p className="text-muted-foreground text-xs">d = Rank₁ - Rank₂ for each pair</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 3: Square each difference</p>
+                    <p className="text-muted-foreground text-xs">d² for each pair</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 4: Sum all squared differences</p>
+                    <p className="text-muted-foreground text-xs">Σd² = sum of all d² values</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 5: Calculate denominator</p>
+                    <p className="text-muted-foreground text-xs">n(n² - 1) where n is number of pairs</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 6: Apply the formula</p>
+                    <p className="text-muted-foreground text-xs">ρ = 1 - [6Σd²] / [n(n² - 1)]</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <p className="font-semibold text-sm mb-4">Worked Example: Maths vs English Ranks</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Student</th>
+                        <th className="p-2 text-center">Maths Rank</th>
+                        <th className="p-2 text-center">English Rank</th>
+                        <th className="p-2 text-center">d</th>
+                        <th className="p-2 text-center">d²</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-xs">
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">A</td>
+                        <td className="p-2 text-center">1</td>
+                        <td className="p-2 text-center">2</td>
+                        <td className="p-2 text-center">-1</td>
+                        <td className="p-2 text-center">1</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">B</td>
+                        <td className="p-2 text-center">2</td>
+                        <td className="p-2 text-center">1</td>
+                        <td className="p-2 text-center">1</td>
+                        <td className="p-2 text-center">1</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">C</td>
+                        <td className="p-2 text-center">3</td>
+                        <td className="p-2 text-center">3</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">0</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">D</td>
+                        <td className="p-2 text-center">4</td>
+                        <td className="p-2 text-center">4</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">0</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">E</td>
+                        <td className="p-2 text-center">5</td>
+                        <td className="p-2 text-center">5</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">0</td>
+                      </tr>
+                      <tr className="font-semibold bg-primary/10">
+                        <td className="p-2" colSpan={4}>Σd² =</td>
+                        <td className="p-2 text-center">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 & 2 - Ranks and Differences (from table above):</p>
+                    <p className="text-xs text-muted-foreground">Each student already has ranks in Maths and English</p>
+                    <p className="text-xs text-muted-foreground">d values show how much ranks differ for each student</p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Steps 3 & 4 - Sum of d² (from table above):</p>
+                    <p className="text-xs text-muted-foreground">Σd² = 1 + 1 + 0 + 0 + 0 = 2</p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 & 6 - Final Calculation:</p>
+                    <p className="mb-1">n = 5 students</p>
+                    <p className="mb-1">n(n² - 1) = 5(25 - 1) = 5 × 24 = 120</p>
+                    <p className="mb-1">ρ = 1 - (6 × 2) / 120</p>
+                    <p className="mb-1">ρ = 1 - 12 / 120</p>
+                    <p className="mb-1">ρ = 1 - 0.1</p>
+                    <p className="font-bold text-base">ρ = 0.9</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> ρ = 0.9 = Very Strong Positive Correlation</p>
+                    <p className="text-xs text-muted-foreground">Students who score high in Maths also tend to score high in English</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card data-testid="card-spearman-meaning">
+            <CardHeader>
+              <CardTitle className="text-lg">Real-Life Applications</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3 text-sm">
+                <div className="border-l-4 border-chart-2 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">"Do students who score high in Maths also score high in Science?"</p>
+                </div>
+                <div className="border-l-4 border-chart-3 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">"Do people who like spicy food also like horror movies?"</p>
+                </div>
+                <div className="border-l-4 border-chart-4 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">"Do richer people also have larger houses?"</p>
+                </div>
+                <div className="border-l-4 border-chart-5 pl-4 bg-muted/50 p-3 rounded">
+                  <p className="font-semibold">"Do employees with more experience always get higher salaries?"</p>
+                </div>
               </div>
             </CardContent>
           </Card>

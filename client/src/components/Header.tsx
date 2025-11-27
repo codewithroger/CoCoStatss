@@ -12,6 +12,7 @@ export function Header() {
     { name: "Correlation", href: "#correlation-topic", icon: BookOpen },
     { name: "Coefficient", href: "#pearson-topic", icon: BookOpen },
     { name: "Covariance", href: "#covariance-topic", icon: BookOpen },
+    { name: "Spearman", href: "#spearman-topic", icon: BookOpen },
     { name: "Quiz", href: "#quiz", icon: BookOpen },
   ];
 
