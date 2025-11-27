@@ -1,0 +1,50 @@
+What is the primary function of correlation as a statistical tool?,To measure and describe the strength and direction of the relationship between two or more variables.
+What are the two key questions that correlation helps to answer about variables?,"Do the variables move together, and if so, how strongly?"
+"In the context of correlation, if daily exercise increases and weight decreases, what can be said about the two variables?",The two variables are said to be correlated.
+How does correlation aid in prediction?,"If a strong correlation exists, one variable can be predicted based on the other, such as predicting marks from study hours."
+"In business, how is correlation used for decision making?","Companies use it to understand customer behavior, such as the relationship between income and spending."
+What type of correlation is observed when one variable increases and the other variable also increases?,Positive Correlation.
+What is a classic example of positive correlation?,The relationship between height and weight.
+What type of correlation is observed when one variable increases while the other decreases?,Negative Correlation.
+What is a common business example of negative correlation?,"As the price of a product increases, the demand for it decreases."
+What is meant by 'Zero Correlation'?,There is no meaningful or discernible relationship between the variables.
+Provide an example of two variables that would likely have zero correlation.,Shoe size and intelligence.
+"What is the correlation coefficient, and what is its symbol?","It is a number between –1 and +1 that shows how strong a relationship is, symbolized by 'r'."
+What does a correlation coefficient (r) value of +1 signify?,"A perfect positive correlation, where variables change in the exact same proportion."
+A correlation coefficient (r) in the range of +0.7 to +0.9 indicates what kind of relationship?,A high positive correlation.
+What type of relationship is indicated by a correlation coefficient (r) between +0.3 and +0.6?,A moderate positive correlation.
+What does a correlation coefficient (r) of 0 mean?,There is no correlation between the variables.
+A correlation coefficient (r) in the range of –0.3 to –0.6 suggests what kind of relationship?,A moderate negative correlation.
+What type of relationship corresponds to a correlation coefficient (r) between –0.7 and –0.9?,A high negative correlation.
+What does a correlation coefficient (r) value of –1 signify?,A perfect negative correlation.
+What is a major limitation of correlation regarding cause and effect?,Correlation does not imply causation; one variable moving with another doesn't mean it causes the movement.
+How can outliers affect correlation results?,"Extreme values, or outliers, can distort the true correlation between variables."
+Correlation is most effective at measuring what type of relationship between variables?,It primarily measures linear relationships and may fail if the relationship is curved or complex.
+What statistical measure does the Pearson Correlation Coefficient (r) provide?,It measures the strength and direction of the linear relationship between two sets of continuous data.
+The Pearson Correlation Coefficient tells you how close data points are to forming a _____.,straight line
+What is the range of possible values for the Pearson Correlation Coefficient (r)?,The value of r is always between -1 and +1.
+"In the Product Moment Formula for Pearson's r, what does $S_{xy}$ represent?",$S_{xy}$ represents the sample covariance.
+"In the Product Moment Formula for Pearson's r, what do $S_x$ and $S_y$ represent?","$S_x$ and $S_y$ represent the sample standard deviation of x and y, respectively."
+What does covariance measure?,Covariance is a statistical measure that indicates how two variables change or vary together.
+"If both variables tend to increase or decrease at the same time, the covariance will be _____.",positive
+What does a negative covariance indicate about the relationship between two variables?,"It indicates that as one variable increases, the other tends to decrease."
+"If there is no clear pattern in how two variables change together, what can be said about their covariance?",The covariance is close to zero.
+"In the formula for population covariance, what does $N$ represent?",$N$ represents the total number of data points in the population.
+What is the key difference in the denominator between the formulas for population covariance and sample covariance?,"The population formula divides by $N$, while the sample formula divides by $n-1$."
+What does Spearman's rank correlation measure?,"It measures how well the relationship between two variables can be described using a monotonic function, based on their ranks."
+Spearman's correlation is used when the data is not normally distributed or when the data is _____.,ordinal (ranked)
+What is a monotonic relationship?,"A relationship where as one variable increases, the other variable consistently increases or consistently decreases."
+What does a positive monotonic relationship mean?,"As one variable increases, the other variable always increases."
+How does Spearman's correlation work with raw data scores?,It converts the raw scores into ranks and then checks the relationship between those ranks.
+"In Spearman's correlation, if the ranks of two variables are very similar, what does this indicate?",It indicates a positive correlation.
+"In Spearman's correlation, if the ranks of two variables are random with respect to each other, what is the likely outcome?",There is no correlation (a coefficient near 0).
+"In the formula for Spearman's rank-correlation coefficient, what does 'n' represent?",The number of observations in the sample.
+"In the Spearman's rank correlation formula, what does $d_i$ represent?",$d_i$ represents the difference between the ranks for each observation ($x_i - y_i$).
+What is the first step in calculating Spearman's correlation if the data is not already ranked?,Rank the data for each variable separately.
+"After ranking the data, what is the next step in calculating Spearman's correlation?",Find the difference (d) between the ranks for each pair of observations.
+What is done with the difference in ranks (d) before it is summed up in the Spearman's formula?,Each difference (d) is squared to get $d^2$.
+What does a Spearman's correlation value of +1 indicate?,"A perfect positive relationship, meaning the ranks move together exactly."
+What does a Spearman's correlation value of -1 indicate?,"A perfect negative relationship, meaning the ranks move in exact opposite directions."
+What is a real-life question that Spearman's correlation could help answer about academic performance?,“Do students who score high in Maths also score high in Science?”
+"In economics, what is a common pair of variables studied using correlation?",Income versus consumption.
+"In finance, correlation is often used to analyze the relationship between _____ and _____.",risk and return

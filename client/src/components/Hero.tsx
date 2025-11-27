@@ -26,7 +26,7 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-5xl mx-auto text-center animate-fade-in">
+      <div className="max-w-5xl mx-auto animate-fade-in">
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20" data-testid="badge-interactive-learning">
             <Brain className="w-4 h-4" />
@@ -34,15 +34,28 @@ export function Hero() {
           </div>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-muted-foreground" data-testid="heading-hero">
-          Master Coefficient & Correlation
-        </h1>
-        
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto" data-testid="text-hero-description">
-          Explore the relationships between variables through interactive flashcards, 
-          engaging quizzes, and dynamic visualizations. Perfect for students and professionals 
-          looking to strengthen their statistical understanding.
-        </p>
+        <div className="mb-8">
+          <video 
+            className="w-full rounded-lg shadow-lg" 
+            controls
+            data-testid="video-understanding-correlation"
+          >
+            <source src="/attached_assets/Understanding_Correlation_1764256951011.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-muted-foreground" data-testid="heading-hero">
+            Master Coefficient & Correlation
+          </h1>
+          
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto" data-testid="text-hero-description">
+            Explore the relationships between variables through interactive flashcards, 
+            engaging quizzes, and dynamic visualizations. Perfect for students and professionals 
+            looking to strengthen their statistical understanding.
+          </p>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button 

@@ -1,7 +1,72 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Zap, AlertCircle, ArrowRight, Trophy } from "lucide-react";
+import { TrendingUp, Zap, AlertCircle, ArrowRight, Trophy, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from "recharts";
+import { useState } from "react";
+
+const flashcards = [
+  { q: "What is the primary function of correlation as a statistical tool?", a: "To measure and describe the strength and direction of the relationship between two or more variables." },
+  { q: "What are the two key questions that correlation helps to answer about variables?", a: "Do the variables move together, and if so, how strongly?" },
+  { q: "In business, how is correlation used for decision making?", a: "Companies use it to understand customer behavior, such as the relationship between income and spending." },
+  { q: "What type of correlation is observed when one variable increases and the other also increases?", a: "Positive Correlation." },
+  { q: "What type of correlation is observed when one variable increases while the other decreases?", a: "Negative Correlation." },
+  { q: "What is meant by 'Zero Correlation'?", a: "There is no meaningful or discernible relationship between the variables." },
+  { q: "What is the correlation coefficient, and what is its symbol?", a: "It is a number between –1 and +1 that shows how strong a relationship is, symbolized by 'r'." },
+  { q: "What does a correlation coefficient (r) value of +1 signify?", a: "A perfect positive correlation, where variables change in the exact same proportion." },
+  { q: "A correlation coefficient (r) in the range of +0.7 to +0.9 indicates what kind of relationship?", a: "A high positive correlation." },
+  { q: "What does the Pearson Correlation Coefficient (r) provide?", a: "It measures the strength and direction of the linear relationship between two sets of continuous data." },
+  { q: "What does covariance measure?", a: "Covariance is a statistical measure that indicates how two variables change or vary together." },
+  { q: "If both variables tend to increase or decrease at the same time, the covariance will be _____.", a: "positive" },
+  { q: "What does a negative covariance indicate?", a: "It indicates that as one variable increases, the other tends to decrease." },
+  { q: "What is the key difference between population and sample covariance?", a: "The population formula divides by N, while the sample formula divides by n-1." },
+  { q: "What does Spearman's rank correlation measure?", a: "It measures how well the relationship between two variables can be described using a monotonic function, based on their ranks." },
+  { q: "Spearman's correlation is used when the data is not normally distributed or when the data is _____.", a: "ordinal (ranked)" },
+  { q: "What is a monotonic relationship?", a: "A relationship where as one variable increases, the other variable consistently increases or consistently decreases." },
+  { q: "In Spearman's correlation, if the ranks of two variables are very similar, what does this indicate?", a: "It indicates a positive correlation." },
+  { q: "What is the first step in calculating Spearman's correlation if the data is not already ranked?", a: "Rank the data for each variable separately." },
+];
+
+function FlashcardViewer() {
+  const [currentCard, setCurrentCard] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleNext = () => {
+    setCurrentCard((prev) => (prev + 1) % flashcards.length);
+    setIsFlipped(false);
+  };
+
+  const handlePrev = () => {
+    setCurrentCard((prev) => (prev - 1 + flashcards.length) % flashcards.length);
+    setIsFlipped(false);
+  };
+
+  return (
+    <div className="w-full">
+      <div className="mb-6 min-h-64 cursor-pointer perspective" onClick={() => setIsFlipped(!isFlipped)}>
+        <Card className="h-64 flex flex-col justify-between hover-elevate transition-all">
+          <CardContent className="flex-1 flex flex-col justify-center items-center p-6 text-center">
+            <p className="text-xs text-muted-foreground mb-4">{isFlipped ? "Answer" : "Question"}</p>
+            <p className="text-lg font-medium leading-relaxed">
+              {isFlipped ? flashcards[currentCard].a : flashcards[currentCard].q}
+            </p>
+            <p className="text-xs text-muted-foreground mt-6">Click to flip</p>
+          </CardContent>
+          <div className="px-6 pb-4 flex justify-between items-center border-t">
+            <span className="text-xs text-muted-foreground">Card {currentCard + 1} of {flashcards.length}</span>
+            <div className="flex gap-2">
+              <Button size="sm" variant="outline" onClick={(e) => { e.stopPropagation(); handlePrev(); }} data-testid="button-prev-flashcard">
+                Previous
+              </Button>
+              <Button size="sm" variant="outline" onClick={(e) => { e.stopPropagation(); handleNext(); }} data-testid="button-next-flashcard">
+                Next
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
+}
 
 export function LearnSection() {
   const scrollToTopic = (topicId: string) => {
@@ -1478,6 +1543,22 @@ export function LearnSection() {
                   <p className="font-semibold">"Do employees with more experience always get higher salaries?"</p>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Flashcards Section */}
+        <div id="flashcards-section" className="mb-16 scroll-mt-20">
+          <h3 className="text-3xl font-bold flex items-center gap-2 mb-8" data-testid="heading-flashcards">
+            <Zap className="w-8 h-8" />
+            Interactive Flashcards
+          </h3>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Test Your Knowledge</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <FlashcardViewer />
             </CardContent>
           </Card>
         </div>
