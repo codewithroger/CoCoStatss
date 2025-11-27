@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Brain } from "lucide-react";
-import videoUrl from '@assets/Understanding_Correlation_1764256951011.mp4';
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -33,20 +32,6 @@ export function Hero() {
             <Brain className="w-4 h-4" />
             <span className="text-sm font-medium">Interactive Learning</span>
           </div>
-        </div>
-
-        <div className="mb-8">
-          <video 
-            className="w-full rounded-lg shadow-lg" 
-            autoPlay
-            muted
-            loop
-            controls
-            data-testid="video-understanding-correlation"
-          >
-            <source src={videoUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </div>
 
         <div className="text-center">

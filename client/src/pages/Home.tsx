@@ -6,6 +6,7 @@ import { LearnSection } from "@/components/LearnSection";
 import { QuizInterface } from "@/components/QuizInterface";
 import { FlashcardCarousel } from "@/components/FlashcardCarousel";
 import { ConceptsReference } from "@/components/ConceptsReference";
+import { VideoFooter } from "@/components/VideoFooter";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Flashcard, QuizQuestion, QuizSubmission, QuizResult } from "@shared/schema";
 
@@ -55,6 +56,7 @@ export default function Home() {
         />
         <FlashcardCarousel />
         <ConceptsReference />
+        <VideoFooter />
       </main>
     </div>
   );
