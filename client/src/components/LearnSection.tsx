@@ -914,6 +914,128 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
+          <Card className="mb-6" data-testid="card-covariance-example3">
+            <CardHeader>
+              <CardTitle className="text-lg">Worked Example 3: Price vs Demand (Negative Covariance)</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="text-xs text-muted-foreground mb-3">A business analyzes the relationship between product price and demand for 4 weeks of data:</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Week</th>
+                        <th className="p-2 text-center">Price (X, $)</th>
+                        <th className="p-2 text-center">Demand (Y, units)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b"><td className="p-2">1</td><td className="p-2 text-center">10</td><td className="p-2 text-center">50</td></tr>
+                      <tr className="border-b"><td className="p-2">2</td><td className="p-2 text-center">12</td><td className="p-2 text-center">40</td></tr>
+                      <tr className="border-b"><td className="p-2">3</td><td className="p-2 text-center">14</td><td className="p-2 text-center">30</td></tr>
+                      <tr><td className="p-2">4</td><td className="p-2 text-center">16</td><td className="p-2 text-center">20</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 - Calculate means:</p>
+                    <p className="text-xs text-muted-foreground">X̄ = (10+12+14+16)/4 = 52/4 = <strong>13 $</strong></p>
+                    <p className="text-xs text-muted-foreground">Ȳ = (50+40+30+20)/4 = 140/4 = <strong>35 units</strong></p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-2">Steps 2-4 - Deviations and Products:</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="p-1 text-left">Week</th>
+                            <th className="p-1 text-center">(X-X̄)</th>
+                            <th className="p-1 text-center">(Y-Ȳ)</th>
+                            <th className="p-1 text-center">(X-X̄)(Y-Ȳ)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b"><td className="p-1">1</td><td className="p-1 text-center">-3</td><td className="p-1 text-center">15</td><td className="p-1 text-center">-45</td></tr>
+                          <tr className="border-b"><td className="p-1">2</td><td className="p-1 text-center">-1</td><td className="p-1 text-center">5</td><td className="p-1 text-center">-5</td></tr>
+                          <tr className="border-b"><td className="p-1">3</td><td className="p-1 text-center">1</td><td className="p-1 text-center">-5</td><td className="p-1 text-center">-5</td></tr>
+                          <tr><td className="p-1">4</td><td className="p-1 text-center">3</td><td className="p-1 text-center">-15</td><td className="p-1 text-center">-45</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] = -45 + (-5) + (-5) + (-45) = <strong>-100</strong></p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Final Calculation:</p>
+                    <p className="mb-1">Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+                    <p className="mb-1">Cov(X,Y) = -100 / (4 - 1) = -100 / 3</p>
+                    <p className="font-bold text-base">Cov(X,Y) = -33.33</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> Cov(X,Y) = -33.33 (Negative Covariance)</p>
+                    <p className="text-xs text-muted-foreground">Interpretation: Strong negative relationship. As price increases, demand decreases (inverse relationship).</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-6" data-testid="card-covariance-formulas-applied">
+            <CardHeader>
+              <CardTitle className="text-lg">Covariance Formulas Applied to All Examples</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left bg-muted">Example</th>
+                        <th className="p-2 text-center bg-muted">Formula Type</th>
+                        <th className="p-2 text-left bg-muted">Formula Applied</th>
+                        <th className="p-2 text-center bg-muted">Result</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-xs">
+                      <tr className="border-b">
+                        <td className="p-2"><strong>Study Hours vs Scores</strong></td>
+                        <td className="p-2 text-center">Sample</td>
+                        <td className="p-2 font-mono">100 / (5-1) = 100/4</td>
+                        <td className="p-2 text-center"><strong>25</strong></td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-2"><strong>Plant Height vs Leaves</strong></td>
+                        <td className="p-2 text-center">Population</td>
+                        <td className="p-2 font-mono">18 / 5</td>
+                        <td className="p-2 text-center"><strong>3.6</strong></td>
+                      </tr>
+                      <tr>
+                        <td className="p-2"><strong>Price vs Demand</strong></td>
+                        <td className="p-2 text-center">Sample</td>
+                        <td className="p-2 font-mono">-100 / (4-1) = -100/3</td>
+                        <td className="p-2 text-center"><strong>-33.33</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg space-y-2">
+                  <p className="font-semibold text-sm">Key Formulas Used:</p>
+                  <div className="font-mono text-xs space-y-1 bg-muted p-2 rounded">
+                    <p><strong>Sample:</strong> Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
+                    <p><strong>Population:</strong> σₓᵧ = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
+                    <p><strong>Alternative:</strong> Cov(X,Y) = [Σ(Xᵢ·Yᵢ) - (ΣXᵢ·ΣYᵢ)/n] / (n - 1)</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="mb-6" data-testid="card-covariance-vs-correlation">
             <CardHeader>
               <CardTitle className="text-lg">Covariance vs Correlation</CardTitle>
