@@ -1038,7 +1038,7 @@ export function LearnSection() {
 
           <Card className="mb-6" data-testid="card-covariance-example-pdf1">
             <CardHeader>
-              <CardTitle className="text-lg">PDF Example 1: Sample Covariance Calculation</CardTitle>
+              <CardTitle className="text-lg">Example 1: Sample Covariance Calculation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -1107,7 +1107,7 @@ export function LearnSection() {
 
           <Card className="mb-6" data-testid="card-covariance-example-pdf2">
             <CardHeader>
-              <CardTitle className="text-lg">PDF Example 2: Population Covariance Calculation</CardTitle>
+              <CardTitle className="text-lg">Example 2: Population Covariance Calculation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
