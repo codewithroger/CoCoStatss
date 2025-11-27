@@ -586,6 +586,19 @@ export function LearnSection() {
                   <p className="text-muted-foreground">X̄ = 2    Ȳ = 4</p>
                 </div>
 
+                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg mb-4">
+                  <p className="font-semibold text-sm mb-3">Pearson's Correlation Coefficient Formula (R):</p>
+                  <div className="font-mono text-xs bg-white dark:bg-slate-900 p-3 rounded mb-3 overflow-x-auto">
+                    <p className="font-bold mb-2">r = Σ(X - X̄)(Y - Ȳ) / √[Σ(X - X̄)² × Σ(Y - Ȳ)²]</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-2"><strong>Where:</strong></p>
+                  <ul className="text-xs text-muted-foreground space-y-1 list-disc list-inside">
+                    <li><strong>Numerator:</strong> Σ(X - X̄)(Y - Ȳ) = Sum of products of deviations</li>
+                    <li><strong>Denominator:</strong> √[Σ(X - X̄)² × Σ(Y - Ȳ)²] = Square root of product of sum of squared deviations</li>
+                    <li>This formula standardizes the covariance to a value between -1 and +1</li>
+                  </ul>
+                </div>
+
                 <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
                   <table className="w-full text-xs">
                     <thead>
