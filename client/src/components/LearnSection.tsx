@@ -358,6 +358,147 @@ export function LearnSection() {
             </CardContent>
           </Card>
 
+          <Card className="mb-6" data-testid="card-pearson-calculation">
+            <CardHeader>
+              <CardTitle className="text-lg">How to Calculate Pearson's r - Step by Step</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="font-semibold text-sm mb-3">5-Step Process:</p>
+                <div className="space-y-3 text-sm">
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 1: Calculate the means</p>
+                    <p className="text-muted-foreground text-xs">x̄ = Σx / n and ȳ = Σy / n</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 2: Find deviations from mean</p>
+                    <p className="text-muted-foreground text-xs">For each data point: (xᵢ - x̄) and (yᵢ - ȳ)</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 3: Multiply deviations</p>
+                    <p className="text-muted-foreground text-xs">(xᵢ - x̄) × (yᵢ - ȳ) for each pair, then sum all products: Σ[(xᵢ - x̄)(yᵢ - ȳ)]</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 4: Calculate sum of squared deviations</p>
+                    <p className="text-muted-foreground text-xs">Square each deviation and sum: Σ(xᵢ - x̄)² and Σ(yᵢ - ȳ)²</p>
+                  </div>
+                  <div className="bg-muted p-3 rounded-lg">
+                    <p className="font-semibold mb-1">Step 5: Apply the formula</p>
+                    <p className="text-muted-foreground text-xs">r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² × Σ(yᵢ - ȳ)²]</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <p className="font-semibold text-sm mb-4">Worked Example: Study Hours vs Test Marks</p>
+                <div className="bg-muted p-3 rounded-lg mb-4 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 text-left">Student</th>
+                        <th className="p-2 text-center">X (Hours)</th>
+                        <th className="p-2 text-center">Y (Marks)</th>
+                        <th className="p-2 text-center">X - X̄</th>
+                        <th className="p-2 text-center">Y - Ȳ</th>
+                        <th className="p-2 text-center">(X - X̄)²</th>
+                        <th className="p-2 text-center">(Y - Ȳ)²</th>
+                        <th className="p-2 text-center">(X - X̄)(Y - Ȳ)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-xs">
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">A</td>
+                        <td className="p-2 text-center">2</td>
+                        <td className="p-2 text-center">50</td>
+                        <td className="p-2 text-center">-2</td>
+                        <td className="p-2 text-center">-20</td>
+                        <td className="p-2 text-center">4</td>
+                        <td className="p-2 text-center">400</td>
+                        <td className="p-2 text-center">40</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">B</td>
+                        <td className="p-2 text-center">4</td>
+                        <td className="p-2 text-center">60</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">-10</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">100</td>
+                        <td className="p-2 text-center">0</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">C</td>
+                        <td className="p-2 text-center">6</td>
+                        <td className="p-2 text-center">70</td>
+                        <td className="p-2 text-center">2</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">4</td>
+                        <td className="p-2 text-center">0</td>
+                        <td className="p-2 text-center">0</td>
+                      </tr>
+                      <tr className="border-b hover:bg-black/5">
+                        <td className="p-2">D</td>
+                        <td className="p-2 text-center">3</td>
+                        <td className="p-2 text-center">55</td>
+                        <td className="p-2 text-center">-1</td>
+                        <td className="p-2 text-center">-15</td>
+                        <td className="p-2 text-center">1</td>
+                        <td className="p-2 text-center">225</td>
+                        <td className="p-2 text-center">15</td>
+                      </tr>
+                      <tr className="font-semibold bg-primary/10">
+                        <td className="p-2">SUM</td>
+                        <td className="p-2 text-center">15</td>
+                        <td className="p-2 text-center">235</td>
+                        <td className="p-2 text-center">-1</td>
+                        <td className="p-2 text-center">-45</td>
+                        <td className="p-2 text-center">9</td>
+                        <td className="p-2 text-center">725</td>
+                        <td className="p-2 text-center">55</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Step 1 - Calculate Means:</p>
+                    <p className="text-xs text-muted-foreground">x̄ = 15 ÷ 4 = 3.75 hours</p>
+                    <p className="text-xs text-muted-foreground">ȳ = 235 ÷ 4 = 58.75 marks</p>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded">
+                    <p className="font-semibold mb-1">Steps 2-4 - Calculate Components (from table above):</p>
+                    <p className="text-xs text-muted-foreground">Σ[(xᵢ - x̄)(yᵢ - ȳ)] = 55</p>
+                    <p className="text-xs text-muted-foreground">Σ(xᵢ - x̄)² = 9</p>
+                    <p className="text-xs text-muted-foreground">Σ(yᵢ - ȳ)² = 725</p>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 p-3 rounded font-mono text-xs">
+                    <p className="font-semibold mb-2">Step 5 - Final Calculation:</p>
+                    <p className="mb-1">r = 55 / √(9 × 725)</p>
+                    <p className="mb-1">r = 55 / √6525</p>
+                    <p className="mb-1">r = 55 / 80.78</p>
+                    <p className="font-bold text-base">r ≈ 0.68</p>
+                  </div>
+
+                  <div className="bg-primary/10 p-3 rounded">
+                    <p className="text-xs"><strong>Result:</strong> r ≈ 0.68 = Strong Positive Correlation</p>
+                    <p className="text-xs text-muted-foreground">Study hours and test marks have a strong positive relationship</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <p className="font-semibold text-sm mb-3">Alternative Formula (Computational):</p>
+                <div className="bg-muted p-3 rounded-lg font-mono text-xs space-y-2 mb-3">
+                  <p>r = [n·Σ(xy) - Σx·Σy] / √{`[n·Σ(x²) - (Σx)²] × [n·Σ(y²) - (Σy)²]`}</p>
+                </div>
+                <p className="text-xs text-muted-foreground">This formula is often easier to use in calculations and gives the same result</p>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card data-testid="card-pearson-graphs">
             <CardHeader>
               <CardTitle className="text-lg">Visualization of Correlation Types</CardTitle>
