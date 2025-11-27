@@ -38,6 +38,9 @@ export function Hero() {
         <div className="mb-8">
           <video 
             className="w-full rounded-lg shadow-lg" 
+            autoPlay
+            muted
+            loop
             controls
             data-testid="video-understanding-correlation"
           >
