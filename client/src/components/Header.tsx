@@ -15,6 +15,7 @@ export function Header() {
     { name: "Spearman", href: "#spearman-topic", icon: BookOpen },
     { name: "Quiz", href: "#quiz", icon: BookOpen },
     { name: "Flashcards", href: "#flashcard-carousel", icon: BookOpen },
+    { name: "Video", href: "#video-section", icon: BookOpen },
   ];
 
   const scrollToSection = (href: string) => {
