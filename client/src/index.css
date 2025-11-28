@@ -285,4 +285,24 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* Flashcard flip animation */
+  @keyframes flipX {
+    0% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: rotateX(360deg);
+      opacity: 1;
+    }
+  }
+
+  .flashcard-flip {
+    animation: flipX 0.6s ease-in-out;
+    perspective: 1000px;
+  }
 }

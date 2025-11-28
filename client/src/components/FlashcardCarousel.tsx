@@ -5,9 +5,14 @@ import { flashcards } from "./LearnSection";
 export function FlashcardCarousel() {
   const [currentCard, setCurrentCard] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const toggleFlip = () => {
-    setIsFlipped(!isFlipped);
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setIsFlipped(!isFlipped);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
   };
 
   const nextCard = () => {
@@ -32,7 +37,7 @@ export function FlashcardCarousel() {
           data-testid="flashcard-carousel-container"
         >
           <Card 
-            className="min-h-96 flex flex-col justify-between overflow-hidden cursor-pointer hover-elevate transition-transform"
+            className={`min-h-96 flex flex-col justify-between overflow-hidden cursor-pointer hover-elevate transition-transform ${isAnimating ? 'flashcard-flip' : ''}`}
             onClick={toggleFlip}
             data-testid="button-flashcard-flip"
           >
