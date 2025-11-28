@@ -120,7 +120,7 @@ export function LearnSection() {
           </p>
 
           {/* Topic Navigation Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <Card
               className="cursor-pointer hover:shadow-lg transition-shadow hover-elevate"
               onClick={() => scrollToTopic("correlation-topic")}
@@ -174,6 +174,27 @@ export function LearnSection() {
               <CardContent className="space-y-3">
                 <p className="text-sm text-muted-foreground">
                   Measure how variables change together using covariance
+                </p>
+                <Button variant="ghost" size="sm" className="w-full justify-between">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="cursor-pointer hover:shadow-lg transition-shadow hover-elevate"
+              onClick={() => scrollToTopic("spearman-topic")}
+              data-testid="card-navigate-spearman"
+            >
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Trophy className="w-5 h-5" />
+                  Topic 4: Spearman Correlation
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  Measure monotonic relationships using rank-based correlation
                 </p>
                 <Button variant="ghost" size="sm" className="w-full justify-between">
                   Learn More <ArrowRight className="w-4 h-4" />
