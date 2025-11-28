@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Zap, AlertCircle, ArrowRight, Trophy, ChevronDown, ChevronUp } from "lucide-react";
+import { TrendingUp, Zap, AlertCircle, ArrowRight, Trophy, ChevronDown, ChevronUp, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from "recharts";
 import { useState } from "react";
+import videoUrl from "@assets/Understanding_Correlation_1764256951011.mp4";
 
 export const flashcards = [
   { q: "What is the primary function of correlation as a statistical tool?", a: "To measure and describe the strength and direction of the relationship between two or more variables." },
@@ -802,13 +803,6 @@ export function LearnSection() {
                   <p className="text-xs text-muted-foreground">Used when working with sample data (most common)</p>
                 </div>
 
-                <div className="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg">
-                  <p className="font-semibold text-sm mb-2">Alternative Computational Formula:</p>
-                  <div className="font-mono text-sm bg-muted p-3 rounded mb-2">
-                    <p className="mb-1">Cov(X,Y) = [Σ(Xᵢ·Yᵢ) - (ΣXᵢ·ΣYᵢ)/n] / (n - 1)</p>
-                    <p className="text-xs text-muted-foreground mt-1">Easier for calculations, less affected by rounding errors</p>
-                  </div>
-                </div>
               </div>
 
               <div className="bg-primary/10 p-3 rounded text-sm space-y-2">
@@ -1134,7 +1128,6 @@ export function LearnSection() {
                   <div className="font-mono text-xs space-y-1 bg-muted p-2 rounded">
                     <p><strong>Sample:</strong> Cov(X,Y) = Σ[(Xᵢ - X̄)(Yᵢ - Ȳ)] / (n - 1)</p>
                     <p><strong>Population:</strong> σₓᵧ = Σ[(Xᵢ - μₓ)(Yᵢ - μᵧ)] / N</p>
-                    <p><strong>Alternative:</strong> Cov(X,Y) = [Σ(Xᵢ·Yᵢ) - (ΣXᵢ·ΣYᵢ)/n] / (n - 1)</p>
                   </div>
                 </div>
               </div>
@@ -1587,18 +1580,29 @@ export function LearnSection() {
           </Card>
         </div>
 
-        {/* Flashcards Section */}
-        <div id="flashcards-section" className="mb-16 scroll-mt-20">
-          <h3 className="text-3xl font-bold flex items-center gap-2 mb-8" data-testid="heading-flashcards">
-            <Zap className="w-8 h-8" />
-            Interactive Flashcards
+        {/* Video Section */}
+        <div id="video-section" className="mb-16 scroll-mt-20">
+          <h3 className="text-3xl font-bold flex items-center gap-2 mb-8" data-testid="heading-video">
+            <Video className="w-8 h-8" />
+            Educational Video
           </h3>
-          <Card className="mb-6">
+          <Card data-testid="card-video-section">
             <CardHeader>
-              <CardTitle>Test Your Knowledge</CardTitle>
+              <CardTitle className="text-lg">Understanding Correlation - Video Tutorial</CardTitle>
             </CardHeader>
-            <CardContent>
-              <FlashcardViewer />
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Watch this comprehensive video tutorial to deepen your understanding of correlation concepts, 
+                formulas, and real-world applications. This visual guide complements the topics covered above.
+              </p>
+              <video 
+                className="w-full rounded-lg shadow-lg border" 
+                controls
+                data-testid="video-understanding-correlation"
+              >
+                <source src={videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </CardContent>
           </Card>
         </div>
