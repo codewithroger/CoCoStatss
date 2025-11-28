@@ -630,34 +630,6 @@ export function LearnSection() {
                   <p><strong>r = 4 / 4 = 1</strong></p>
                   <p className="font-bold text-lg mt-2"><strong>r = +1</strong></p>
                 </div>
-
-                <div className="border-t pt-6">
-                  <p className="font-semibold text-sm mb-4">Alternative Method: Using Product Moment Formula</p>
-                  <p className="text-xs text-muted-foreground mb-3">The correlation coefficient can also be calculated using sample covariance and standard deviations:</p>
-                  
-                  <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg mb-4 space-y-3">
-                    <div className="font-mono text-xs space-y-2">
-                      <p className="font-bold">r = s_xy / (s_x × s_y)</p>
-                      <p className="border-t pt-2 mt-2">Where:</p>
-                      <p><strong>s_xy</strong> = sample covariance = [ΣXY - (ΣX × ΣY)/n] / (n - 1)</p>
-                      <p><strong>s_x</strong> = sample standard deviation of X</p>
-                      <p><strong>s_y</strong> = sample standard deviation of Y</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg space-y-2 font-mono text-xs">
-                    <p className="font-semibold mb-2">Calculation using Product Moment Formula:</p>
-                    <p>s_x = √[Σ(X - X̄)² / (n-1)] = √[2 / 2] = √1 = 1</p>
-                    <p>s_y = √[Σ(Y - Ȳ)² / (n-1)] = √[8 / 2] = √4 = 2</p>
-                    <p>s_xy = Σ(X - X̄)(Y - Ȳ) / (n-1) = 4 / 2 = 2</p>
-                    <p className="border-t pt-2 mt-2"><strong>r = 2 / (1 × 2) = 2 / 2 = +1</strong></p>
-                  </div>
-
-                  <div className="bg-primary/10 p-3 rounded mt-3">
-                    <p className="text-xs"><strong>Result:</strong> Both methods give r = +1 (Perfect Positive Correlation)</p>
-                    <p className="text-xs text-muted-foreground">The Product Moment Formula is more intuitive: correlation = (covariance) / (product of standard deviations)</p>
-                  </div>
-                </div>
               </div>
             </CardContent>
           </Card>
